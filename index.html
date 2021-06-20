@@ -146,8 +146,6 @@
 
 
     
-<!--     This html document feeds the 'info' popup in the corner, it can have images and links embedded -->
-            <a-asset-item id="messageText" src="message.html"></a-asset-item>
 
 
 <!-- Sounds used within the interaction system-->
@@ -159,36 +157,241 @@
   </a-assets>
 
 <!-- At the minimum we'd also want to setup an environment light, although we might also need to explore background options -->
-<a-sky id="sky" phi-start="45" src=""></a-sky>
   <a-light id="sun" angle="60" color="#FFF" intensity="0.4" type="hemisphere"></a-light>
 
          
-<!-- Camera rig serves as user perspective. User cannot pivot camera and raycast emits from this view-->
-  <a-entity id="rig" position="0 1.55 0.115" rotation="0 -19.1 0" >
-    <a-entity camera
-              look-controls="mouseEnabled: false"
-              position="-0.11 0 -0.66"
-              rotation="0 -23.4 0"
-              raycaster="objects: .dissect; direction: -24 -3 0;" 
-              cursor="rayOrigin:mouse"
+   
+      <!-- Hand controls are defined to get raycast capability to allow button interaction while using them -->
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
+<a-entity 
+                position="-5 0 0"
+                light="intensity: 1; type: point; castShadow: true" rotation=""
+                light-on-beat="analyserEl: #white"
+></a-entity>
+      
+    
+      <a-entity id="rig" position="0 0 0" rotation="0 0 0" >
+    <a-entity id="eyes"
+              camera="fov: 80"
+              look-controls="enabled:  false;  mouseEnabled:  false"
+              position=""
+              rotation=""
+              raycaster="objects: .mouse; direction: -24 -3 0;" cursor="rayOrigin: mouse"
               static-body="shape: sphere; sphereRadius: 0.001"
               super-hands="colliderEvent: raycaster-intersection;
                              colliderEventProperty: els;
                              colliderEndEvent:raycaster-intersection-cleared;
                              colliderEndEventProperty: clearedEls;">
-<!--         <a-entity
-          id="fadeBackground"
-          geometry="primitive: sphere; radius: 2.5"
-          material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
-        </a-entity> -->
-      </a-entity> </a-entity> 
-    
+      </a-entity>
+    </a-entity>  
+      
+      <a-entity id="responsivetext">
+      <a-entity id="whitemagickey"
+          visible="false"
+          rotation="" 
+          position="0 20 -40"
+          gltf-model="#whitemagickeytext" 
+          scale="15 15 15"
+          light-on-beat="analyserEl: #White"
+          rotatable
+          class="mouse"
+          light="color: #ffffff; groundColor: #ffffff; intensity: 1; type: point; castShadow: true"
+></a-entity>
+        <a-entity id="silvermagickey" 
+          visible="false"
+          rotation="" 
+          position="0 20 -40"
+          gltf-model="#silvermagickeytext" 
+          scale="15 15 15"
+          light-on-beat="analyserEl: #Silver"
+          rotatable          class="mouse"
+          light="color: #8c8c8c; groundColor: #8c8c8c; intensity: 1; type: point; castShadow: true"
+></a-entity>
+        <a-entity id="goldmagickey" 
+          visible="false"
+          rotation="" 
+          position="0 20 -40"
+          gltf-model="#goldmagickeytext" 
+          scale="15 15 15"
+          light-on-beat="analyserEl: #Gold"
+          rotatable          class="mouse"
+          light="color: #f9dea2; groundColor: #f9dea2; intensity: 1; type: point; castShadow: true"
+></a-entity>
+        <a-entity id="pinkmagickey" 
+          visible="false"
+          rotation="" 
+          position="0 20 -40"
+          gltf-model="#pinkmagickeytext" 
+          scale="15 15 15"
+          light-on-beat="analyserEl: #Pink"
+          rotatable          class="mouse"
+          light="color: #df7592; groundColor: #df7592; intensity: 1; type: point; castShadow: true"
+></a-entity>
+        <a-entity id="bluemagickey"
+          visible="false"
+          rotation="" 
+          position="0 20 -40"
+          gltf-model="#bluemagickeytext" 
+          scale="15 15 15"
+          light-on-beat="analyserEl: #Blue"
+          rotatable          class="mouse"
+          light="color: #1ebcb8; groundColor: #1ebcb8; intensity: 1; type: point; castShadow: true"
+></a-entity>
+                <a-entity id="greenmagickey"
+          visible="false"
+          rotation="" 
+          position="0 20 -40"
+          gltf-model="#greenmagickeytext" 
+          scale="15 15 15"
+          light-on-beat="analyserEl: #Green"
+          rotatable          class="mouse"
+          light="color: #48bc1e; groundColor: #48bc1e; intensity: 1; type: point; castShadow: true"
+></a-entity>
+      
+      </a-entity>
+      
+      
+      <a-entity id="zoetonecomplex" 
+                animation__pt1="property: rotation;dir: alternate; from: 0 0 0; to: 0 0 90; loop: true; dur: 30000;startEvents: click"
+                animation__pt1a="property: rotation;dir: alternate; from: 0 0 90; to: 0 0 -90; loop: true; dur: 60000;delay: 30000;startEvents: click"
+                animation__pt2="property: position;dir: alternate; from: 0 0 0; to: 0 0 -30; loop: true; dur: 60000;startEvents: click"
+                animation__pt3="property: scale;dir: alternate; from: 1 1 1;to: 8 8 8; loop: true; dur: 6000;startEvents: click">
+<a-entity 
+          id="startprompt"
+          playtracks="" 
+          mixin="splashaway"
+          troika-text="value:
+MTR Magic Key                  
+   
+  
+                       
+                       
+Raleigh, NC; 
+                       align: center; 
+                       color: #f9dea2; 
+                       font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708; 
+                       fontSize: 3; fillOpacity:  0.5;  
+                       outlineBlur:  0.34;  outlineColor:  #8c8c8c;  outlineOpacity:  0.64;  outlineWidth:  0.02;  
+                       strokeColor:  #f9dea2;  strokeOpacity:  4.01;  strokeWidth:  0.05"
+          position="0 3.5 -15"
+          ></a-entity>
+      
+      <a-entity id="playbuttonkey" 
+                rotation="49.8 125.5 128" 
+                position="-2.25 1 -16"
+                gltf-model="#magickey"
+                scale=".5 .5 .5"
+                mixin="splashaway"
+                playtracks=""
+                class="mouse"
+    ></a-entity>
+        
 
- 
-     
-      <!-- Hand controls are defined to get raycast capability to allow button interaction while using them -->
-      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
-      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
+      
+      
+   <a-sky id="sky" material="color: #2b2622" geometry="radius: 1000"></a-sky>
+
+      <a-entity id="zoetonehome"
+            scale="1 1 1" position="-1 0 -15" rotation="0 0 0"
+            class="mouse">
+            <a-entity 
+                    id="Silver"
+                    position="-3 0 0" 
+                    geometry="primitive: sphere"
+                      material="color:  #8c8c8c;  metalness:  0.5; emissive:  #8c8c8c;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                     class="mouse"
+                      audioanalyser="src: #lane1; beatDetectionDecay: 0.99,
+    beatDetectionMinVolume: 15; enableBeatDetection: true"
+                    audio-level-scale="positionScale: 1 20 1"
+                    mixin="magickeywhitetextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
+               event-set__textcallsilver= "
+                _event : click;
+                _target : #silvermagickey;
+                animation.property : visible;
+                animation.to: true;"
+           ></a-entity>
+            <a-entity 
+                    id="Blue" 
+                    position="3 0 0" 
+                    geometry="primitive: sphere"
+                      material="color:  #1ebcb8;  metalness:  0.5; emissive:  #1ebcb8;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                    class="mouse"
+                    audioanalyser="src: #lane2; beatDetectionDecay: 0.99,
+    beatDetectionMinVolume: 15; enableBeatDetection: true"
+                    audio-level-scale="positionScale: 1 20 1"
+                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway"
+                    ring-on-beat="analyserEl: #Blue"
+               event-set__textcallblue= "
+                _event : click;
+                _target : #bluemagickey;
+                animation.property : visible;
+                animation.to: true;"
+ ></a-entity>
+            <a-entity 
+                      id="Gold" 
+                    position="-1.5 0" 
+                    geometry="primitive: sphere"
+                      material="color:  #f9dea2;  metalness:  0.5; emissive:  #f9dea2;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                    class="mouse"
+                      audioanalyser="src: #lane3; beatDetectionDecay: 0.90,
+    beatDetectionMinVolume: 5; enableBeatDetection: true"
+                      ring-on-beat2="analyserEl: #Gold"
+                    audio-level-scale="positionScale: 1 40 1"
+                    mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
+                      event-set__textcallgold= "
+                _event : click;
+                _target : #goldmagickey;
+                animation.property : visible;
+                animation.to: true;"
+></a-entity>
+            <a-entity 
+                      id="Pink" 
+                      position="1.5 0 0"
+                      geometry="primitive: sphere" 
+                      material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                      class="mouse"
+                      audioanalyser="src: #lane4; beatDetectionDecay: 0.90,
+    beatDetectionMinVolume: 5; enableBeatDetection: true"
+                      audio-level-scale="positionScale: 1 40 1"
+                      mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+               event-set__textcallpink= "
+                _event : click;
+                _target : #pinkmagickey;
+                animation.property : visible;
+                animation.to: true;"
+></a-entity>
+            <a-entity id="Green" 
+                      position="4.5 0 0" 
+                      geometry="primitive: sphere"
+                      material="color:  #48bc1e;  metalness:  0.5; emissive:  #48bc1e;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                      class="mouse"
+                      audioanalyser="src: #lane5; beatDetectionDecay: 0.99,
+    beatDetectionMinVolume: 15; enableBeatDetection: true"
+                      audio-level-scale="positionScale: 1 20 1"
+                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway splashaway"
+                                     event-set__textcallgreen= "
+                _event : click;
+                _target : #greenmagickey;
+                animation.property : visible;
+                animation.to: true;"
+></a-entity>
+            <a-entity id="White" 
+                      position="-4.5 0 0" 
+                      geometry="primitive: sphere" 
+                      material="color:  #ffffff;  metalness:  0.5; emissive:  #ffffff;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                      class="mouse"
+                      audioanalyser="src: #lane6; beatDetectionDecay: 0.99,
+    beatDetectionMinVolume: 15; enableBeatDetection: true"
+                      ring-on-beat2="analyserEl: #White"
+                      audio-level-scale="positionScale: 1 20 1"
+                      mixin="magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
+                      event-set__textcallwhite= "
+                _event : click;
+                _target : #whitemagickey;
+                animation.property : visible;
+                animation.to: true;"
+></a-entity></a-entity></a-entity>
 
 
 </a-scene>
