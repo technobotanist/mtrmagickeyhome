@@ -399,18 +399,93 @@ Raleigh, NC;
   
   
 <!--   Left Margin -->
-  <a-entity class="mouse">
+
   <a-entity 
             id="pinkcube"
+            class="mouse"
             material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
             rotatable
             position="-12 3 -12" 
-            geometry="" 
+            geometry=""
+
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+               event-set__textcallpink= "
+                _event : click;
+                _target : #pinkmagickey;
+                animation.property : visible;
+                animation.to: true;"
+>
+   <a-entity 
+            id="pinkcube2"
+            class="mouse"
+            material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+            rotatable
+            position="-12 3 -12" 
+            geometry=""
             animation__scale="dur: 200; property: scale; startEvents: mouseenter; to: 2 2 2" 
             animation__scale_reverse="dur: 200; property: scale; startEvents: mouseleave; to: 1 1 1"
-            audioanalyser="src: #lane4; beatDetectionDecay: 0.90,
-    beatDetectionMinVolume: 5; enableBeatDetection: true"
-            audio-level-scale="positionScale: 1 40 1"
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+               event-set__textcallpink= "
+                _event : click;
+                _target : #pinkmagickey;
+                animation.property : visible;
+                animation.to: true;"
+></a-entity></a-entity>
+    <a-entity 
+            id="silvercube"
+            class="mouse"
+            material="color:  #8c8c8c;  metalness:  0.5; emissive:  #8c8c8c;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+            rotatable
+            position="-10 1 -12" 
+            geometry=""
+
+            mixin="magickeywhitetextaway magickeypinktextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+               event-set__textcallsilver= "
+                _event : click;
+                _target : #pinkmagickey;
+                animation.property : visible;
+                animation.to: true;"
+>
+   <a-entity 
+            id="pinkcube2"
+            class="mouse"
+            material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+            rotatable
+            position="-12 3 -12" 
+            geometry=""
+            animation__scale="dur: 200; property: scale; startEvents: mouseenter; to: 2 2 2" 
+            animation__scale_reverse="dur: 200; property: scale; startEvents: mouseleave; to: 1 1 1"
+            mixin="magickeywhitetextaway magickeypinktextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+               event-set__textcallsilver= "
+                _event : click;
+                _target : #pinkmagickey;
+                animation.property : visible;
+                animation.to: true;"
+></a-entity></a-entity>
+    <a-entity 
+            id="pinkcube"
+            class="mouse"
+            material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+            rotatable
+            position="-12 3 -12" 
+            geometry=""
+
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+               event-set__textcallpink= "
+                _event : click;
+                _target : #pinkmagickey;
+                animation.property : visible;
+                animation.to: true;"
+>
+   <a-entity 
+            id="pinkcube2"
+            class="mouse"
+            material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+            rotatable
+            position="-12 3 -12" 
+            geometry=""
+            animation__scale="dur: 200; property: scale; startEvents: mouseenter; to: 2 2 2" 
+            animation__scale_reverse="dur: 200; property: scale; startEvents: mouseleave; to: 1 1 1"
             mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
                event-set__textcallpink= "
                 _event : click;
