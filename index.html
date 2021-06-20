@@ -93,6 +93,15 @@
                 animation.property : position;
                 animation.to: 0 106.5 -15         ;"
           ></a-mixin>
+    
+     <a-mixin   
+          id="splashin"
+                    event-set__splashin1= "
+                _event : click;
+                _target : #followuptext;
+                animation.property : position;
+                animation.to: 0 -6 -15         ;"
+          ></a-mixin>
         
    <a-mixin   
           id="magickeywhitetextaway"
@@ -261,7 +270,7 @@
 <a-entity 
           id="startprompt"
           playtracks="" 
-          mixin="splashaway"
+          mixin="splashaway splashin"
           troika-text="value:
 MTR Magic Key                  
    
@@ -283,11 +292,30 @@ Raleigh, NC;
                 position="-2.25 1 -16"
                 gltf-model="#magickey"
                 scale=".5 .5 .5"
-                mixin="splashaway"
+                mixin="splashaway  splashin"
                 playtracks=""
                 class="mouse"
     ></a-entity>
         
+<a-entity 
+          id="followuptext"
+          geometry=""
+          class="mouse"
+          playtracks="" 
+          mixin="splashaway"
+          troika-text="value:
+Play/Pause;
+                       align: center; 
+                       color: #f9dea2; 
+                       font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708; 
+                       fontSize: 3; fillOpacity:  0.5;  
+                       outlineBlur:  0.34;  outlineColor:  #8c8c8c;  outlineOpacity:  0.64;  outlineWidth:  0.02;  
+                       strokeColor:  #f9dea2;  strokeOpacity:  4.01;  strokeWidth:  0.05"
+          position="0 106.5 -15 "
+         
+          ></a-entity>
+      
+
 
       
       
@@ -305,7 +333,7 @@ Raleigh, NC;
                       audioanalyser="src: #lane1; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
                     audio-level-scale="positionScale: 1 20 1"
-                    mixin="magickeywhitetextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
+                    mixin="magickeywhitetextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway  splashin"
                event-set__textcallsilver= "
                 _event : click;
                 _target : #silvermagickey;
@@ -321,7 +349,7 @@ Raleigh, NC;
                     audioanalyser="src: #lane2; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
                     audio-level-scale="positionScale: 1 20 1"
-                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway"
+                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway  splashin"
                     ring-on-beat="analyserEl: #Blue"
                event-set__textcallblue= "
                 _event : click;
@@ -339,7 +367,7 @@ Raleigh, NC;
     beatDetectionMinVolume: 5; enableBeatDetection: true"
                       ring-on-beat2="analyserEl: #Gold"
                     audio-level-scale="positionScale: 1 40 1"
-                    mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
+                    mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway  splashin"
                       event-set__textcallgold= "
                 _event : click;
                 _target : #goldmagickey;
@@ -355,7 +383,7 @@ Raleigh, NC;
                       audioanalyser="src: #lane4; beatDetectionDecay: 0.90,
     beatDetectionMinVolume: 5; enableBeatDetection: true"
                       audio-level-scale="positionScale: 1 40 1"
-                      mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+                      mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway  splashin"
                event-set__textcallpink= "
                 _event : click;
                 _target : #pinkmagickey;
@@ -370,7 +398,7 @@ Raleigh, NC;
                       audioanalyser="src: #lane5; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
                       audio-level-scale="positionScale: 1 20 1"
-                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway splashaway"
+                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway splashaway splashin"
                                      event-set__textcallgreen= "
                 _event : click;
                 _target : #greenmagickey;
@@ -386,7 +414,7 @@ Raleigh, NC;
     beatDetectionMinVolume: 15; enableBeatDetection: true"
                       ring-on-beat2="analyserEl: #White"
                       audio-level-scale="positionScale: 1 20 1"
-                      mixin="magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
+                      mixin="magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway splashin"
                       event-set__textcallwhite= "
                 _event : click;
                 _target : #whitemagickey;
@@ -405,11 +433,8 @@ Raleigh, NC;
             class="mouse"
             material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
             position="-12 0 -12"
-            audioanalyser="src: #lane4; beatDetectionDecay: 0.90,
-    beatDetectionMinVolume: 5; enableBeatDetection: true"
-            audio-level-scale="positionScale: 1 2 1"
             geometry=""
-            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway splashin"
                event-set__textcallpink= "
                 _event : click;
                 _target : #pinkmagickey;
@@ -421,7 +446,7 @@ Raleigh, NC;
             material="color:  #f9dea2;  metalness:  0.5; emissive:  #f9dea2;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
             position="-12 2 -12" 
             geometry=""
-            mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway splashin"
                event-set__textcallgoldcube= "
                 _event : click;
                 _target : #goldmagickey;
@@ -435,7 +460,7 @@ Raleigh, NC;
             material="color:  #1ebcb8;  metalness:  0.5; emissive:  #1ebcb8;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
             position="-12 -2 -12" 
             geometry=""
-            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway"
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway splashin"
                event-set__textcallbluecube= "
                 _event : click;
                 _target : #bluemagickey;
@@ -450,7 +475,7 @@ Raleigh, NC;
             rotatable
             position="-12 4 -12" 
             geometry=""
-            mixin="magickeywhitetextaway magickeypinktextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+            mixin="magickeywhitetextaway magickeypinktextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway splashin"
                event-set__textcallsilvercube= "
                 _event : click;
                 _target : #silvermagickey;
@@ -465,7 +490,7 @@ Raleigh, NC;
             rotatable
             position="-12 -4 -12" 
             geometry=""
-            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeypinktextaway splashaway"
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeypinktextaway splashaway splashin"
                event-set__textcallgreencube= "
                 _event : click;
                 _target : #greenmagickey;
@@ -480,7 +505,7 @@ Raleigh, NC;
             rotatable
             position="-12 -6 -12" 
             geometry=""
-            mixin="magickeypinktextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+            mixin="magickeypinktextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway splashin"
                event-set__textcallwhitecube= "
                 _event : click;
                 _target : #whitemagickey;
