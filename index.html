@@ -26,18 +26,10 @@
 <script src="./layout.js"></script> 
     <script src="./lookat.js"></script> 
   
-<!--   Several unique examination box components -->
-  <script src="./ExaminationBox.js"></script>
-  <script src="./Examinable.js"></script>
+<!--   unique examination box components -->
   <script src="./Rotatable.js"></script>
-  <script src="./ExamineCallout.js"></script>
   <script src="./ScaleButton.js"></script>
-  <script src="./ContextButton.js"></script>
-  <script src="./ContextAnimPlay.js"></script>
-  <script src="./ContextVisibility.js"></script>
-  <script src="./ExamineAudioButton.js"></script>
-  <script src="./Gridable.js"></script>
-  <script src="./Tabselector.js"></script>
+
   
   <script src="./linkhref.js"></script>
 <script src="./info-message.js"></script>
@@ -50,6 +42,7 @@
       cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
       event-set__click="_event:click;"
       info-message="htmlSrc: #messageText"
+      
          >
   
 <!-- Media assets used throughout experience    -->
@@ -57,25 +50,7 @@
     
 <!--     This html document feeds the 'info' popup in the corner, it can have images and links embedded -->
             <a-asset-item id="messageText" src="message.html"></a-asset-item>
-<!--   These are the models for the splash screen marquee -->
-        <a-asset-item id="splash" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FPowerful%20Jofo-Snaget(8).glb?v=1620312857063"></a-asset-item>
-        <a-asset-item id="splashinsert" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Flilydissectsplashinsert1.glb?v=1620260621205"></a-asset-item>
-<!-- White table seen beneath interactions      -->
-    <a-asset-item id="table" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FTableOpen.glb?v=1616683384876"></a-asset-item>
-<!--   Globe-like observation 'container box' -->
-    <a-asset-item id="containerBox" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FGlobe_41221.glb?v=1618253122491"></a-asset-item>
-<!--   Various Plant Anatomy models, many with their origin set to 0,0,0 such that they assemble into a more substantial model when overlayed -->
-    <a-asset-item id="lilyhemisphere"
-      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Full_Half.gltf?v=1615965211555"
-      response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-<!-- Template image for text field beneath observation container -->
-    <a-image id="calloutBg" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FCallout_BG.png?v=1618246490561"></a-image>
-<!-- Placeholder models to test button interaction system -->    
-    <a-asset-item id="totemfull" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136"></a-asset-item>
-    <a-asset-item id="totemhalf" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377"></a-asset-item>
-    
-    <a-asset-item id="skyHDRI" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fnoon_grass_1k.hdr?v=1620244111743"></a-asset-item>
-    <a-asset-item id="speakerIcon" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FSpeakerIcon.glb?v=1623181542019"></a-asset-item>
+
 
 <!-- Sounds used within the interaction system-->
 <a-sound id="click1" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fclick1dry.mp3?v=1620252061034"></a-sound>
@@ -86,14 +61,13 @@
   </a-assets>
 
 <!-- At the minimum we'd also want to setup an environment light, although we might also need to explore background options -->
-<a-sky id="sky" phi-start="45" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbackdrop.png?v=1620327729799"></a-sky>
-  <a-light id="sun" angle="60" color="#FFF" intensity="0.8" type="hemisphere"></a-light>
+<a-sky id="sky" phi-start="45" src=""></a-sky>
+  <a-light id="sun" angle="60" color="#FFF" intensity="0.4" type="hemisphere"></a-light>
 
          
 <!-- Camera rig serves as user perspective. User cannot pivot camera and raycast emits from this view-->
   <a-entity id="rig" position="0 1.55 0.115" rotation="0 -19.1 0" >
     <a-entity camera
-              tabselector
               look-controls="mouseEnabled: false"
               position="-0.11 0 -0.66"
               rotation="0 -23.4 0"
@@ -104,445 +78,20 @@
                              colliderEventProperty: els;
                              colliderEndEvent:raycaster-intersection-cleared;
                              colliderEndEventProperty: clearedEls;">
-        <a-entity
+<!--         <a-entity
           id="fadeBackground"
           geometry="primitive: sphere; radius: 2.5"
           material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
-        </a-entity>
-      </a-entity> 
+        </a-entity> -->
+      </a-entity> </a-entity> 
     
 
  
-    <a-entity id="splashscreencomplex" position="0.017 0.01 -0.006">
-      
-      <!--This is a random light that looks good on the splash   -->
-  <a-entity id="splashlight" light="type: hemisphere; intensity: 0.81; castShadow: false"></a-entity>   
-   
-      <a-entity id="splashscreen"  class="dissect" position="-0.083 0.303 -1.237" gltf-model="#splash" scale="0.008 0.008 0.008" rotation="90 0 0"
-                
-                 event-set__splash1 = "
-                _event : click;
-                _target : #splashscreeninsert;
-                animation.property : position;
-                animation.to: -0.083 1.303 -1.237;"
-                
-                event-set__splash2 = "
-                _delay : 1200;
-                _event : click;
-                _target : #splashscreen;
-                animation.property : position;
-                animation.to: -0.083 5.303 -1.237;"
-                
-                event-set__splashdim = "
-                _delay : 600;
-                _event : click;
-                _target : #splashlight;
-                animation.property : light.intensity;
-                animation.to: 0.5;"
-                
-                ></a-entity>
-        <a-entity id="splashscreeninsert"  class="dissect" position="-0.083 0.303 -1.237" gltf-model="#splashinsert" scale="0.008 0.008 0.008" rotation="90 0 0"
-                  
-                event-set__splash1 = "
-                _event : click;
-                _target : #splashscreeninsert;
-                animation.property : position;
-                animation.to: -0.083 1.303 -1.237;"
-                  
-               event-set__splash2 = "
-                _delay : 1200;
-                _event : click;
-                _target : #splashscreen;
-                animation.property : position;
-                animation.to: -0.083 5.303 -1.237;"
-                
-              event-set__splashdim = "
-                _delay : 600;
-                _event : click;
-                _target : #splashlight;
-                animation.property : light.intensity;
-                animation.to: 0.5;"
-                  ></a-entity>
-  </a-entity>
-  
-  </a-entity>
-
-  
-<!-- Lilywholedisection is a container element for all the draggable anatomy models in the dissection simulation    -->
-  <a-entity id="lilywholedissection"
-         
-         position= "-0.089 1.24 -1.7"
-          rotation="0 0 0" >
-    
-<!--   Stamens have a text field for when they're hovered. Each stamen is then defined as an entity with raycast collision and events.-->
-    <a-text id="stamentext" text="color: #000000; value: Stamen; opacity: 0" position="-0.731 3 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
-    
-      <a-entity id="stamens"
-event-set__hoveredstamen = "
-                _event : hover-start;
-                _target : #stamentext;
-                animation.property : text.opacity;
-                animation.to: 1"
-
-event-set__hoveredoffstamen = "
-                _event : hover-end;
-                _target : #stamentext;
-                animation.property : text.opacity;
-                animation.to: 0">    
-      
-       <a-entity id="lilystamen1" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                 shadow examinable="headerText: Lily Stamen;
-                                    contentText: Each stamen consists of a filament (stalk) and anther. Pollen is produced inside the chambers of the anther and released when the anther dehisces (breaks open).;
-                                    audioClipUrl: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FtestRecording.mp3?v=1623182471997;"
-                scale="0.14 0.14 0.14"
-                 gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978"
-                 contextvisible="gltfName: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377">
-          
-          </a-entity>
-      
-             <a-entity id="lilystamen2" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                 shadow examinable="headerText: Lily Stamen; contentText: Each stamen consists of a filament (stalk) and anther. Pollen is produced inside the chambers of the anther and released when the anther dehisces (breaks open).;"
-                scale="0.14 0.14 0.14"
-                 gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_2.gltf?v=1616117308966"
-                       contextvisible="gltfName: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377"
-                 >
-          </a-entity>
-
-      
-             <a-entity id="lilystamen3" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                 shadow examinable="headerText: Lily Stamen; contentText: Each stamen consists of a filament (stalk) and anther. Pollen is produced inside the chambers of the anther and released when the anther dehisces (breaks open).;"
-                scale="0.14 0.14 0.14"
-               gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_3.gltf?v=1615974821270"
-                       contextvisible="gltfName: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377"
-                 >
-          </a-entity>
-
-                   <a-entity id="lilystamen4" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                 shadow examinable="headerText: Lily Stamen; contentText: Each stamen consists of a filament (stalk) and anther. Pollen is produced inside the chambers of the anther and released when the anther dehisces (breaks open).;"
-                scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_4.gltf?v=1615974818446"
-                 >
-          </a-entity>
-      
-                   <a-entity id="lilystamen5" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                 shadow examinable="headerText: Lily Stamen; contentText: Each stamen consists of a filament (stalk) and anther. Pollen is produced inside the chambers of the anther and released when the anther dehisces (breaks open).;"
-              scale="0.14 0.14 0.14"
-              gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_5.gltf?v=1615974819486"
-                 >
-          </a-entity> 
-        
-        <a-entity id="lilystamen6" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                 shadow examinable="headerText: Lily Stamen; contentText: Each stamen consists of a filament (stalk) and anther. Pollen is produced inside the chambers of the anther and released when the anther dehisces (breaks open).;"
-                scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_6.gltf?v=1615974820176"
-                 >
-          </a-entity>
-  
-</a-entity>
-    
-<!--   Petals/Tepals have a text field for when they're hovered. Each is then defined as an entity with raycast collision and events.-->
-    <a-text id="tepaltext" text="color: #000000; value: Tepal; opacity: 0" position="-0.731 3.2 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
-    
-   
-    <a-entity id="petals" 
-                event-set__hoveredtepal = "
-                _event : hover-start;
-                _target : #tepaltext;
-                animation.property : text.opacity;
-                animation.to: 1"
-
-event-set__hoveredofftepal = "
-                _event : hover-end;
-                _target : #tepaltext;
-                animation.property : text.opacity;
-                animation.to: 0">
-      
-             <a-entity id="lilypetalA1" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                 shadow 
-                examinable="headerText: Lily Tepal; contentText: In the strictest sense, the petal and sepal whorls of the lily are not differentiated in appearance so they are called tepals. The tepals collectively make up the perianth of this flower.;"
-                scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_PetalA_1.gltf?v=1616117871787"
-                 >
-          </a-entity>
-      
-             <a-entity id="lilypetalA2" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                   shadow 
-                examinable="headerText: Lily Tepal; contentText: In the strictest sense, the petal and sepal whorls of the lily are not differentiated in appearance so they are called tepals. The tepals collectively make up the perianth of this flower.;"
-                scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_PetalA_2.gltf?v=1616117851829"
-                 >
-          </a-entity>
-
-      
-             <a-entity id="lilypetalA3" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                 shadow 
-                examinable="headerText: Lily Tepal; contentText: In the strictest sense, the petal and sepal whorls of the lily are not differentiated in appearance so they are called tepals. The tepals collectively make up the perianth of this flower.;"
-                scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_PetalA_3.gltf?v=1616117862525"
-                 >
-          </a-entity>
-
-                   <a-entity id="lilypetalB1" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                 shadow                 
-                examinable="headerText: Lily Tepal; contentText: In the strictest sense, the petal and sepal whorls of the lily are not differentiated in appearance so they are called tepals. The tepals collectively make up the perianth of this flower.;"
-                 scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_PetalB_1.gltf?v=1616117873108"
-                 >
-          </a-entity>
-      
-                   <a-entity id="lilypetalB2" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                shadow                 
-                examinable="headerText: Lily Tepal; contentText: In the strictest sense, the petal and sepal whorls of the lily are not differentiated in appearance so they are called tepals. The tepals collectively make up the perianth of this flower.;"
-                scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_PetalB_2.gltf?v=1616117870335"
-                 >
-          </a-entity> 
-        <a-entity id="lilypetalB3" 
-                mixin="frame" 
-                 class="dissect" 
-                hoverable grabbable stretchable draggable droppable gridable
-                shadow                 
-                examinable="headerText: Lily Tepal; contentText: In the strictest sense, the petal and sepal whorls of the lily are not differentiated in appearance so they are called tepals. The tepals collectively make up the perianth of this flower.;"
-                scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_PetalB_3.gltf?v=1616117869899"
-                 >
-          </a-entity>
-      
-      </a-entity>
-      
-<!--   Pistil a text field for when they're hovered. Pistil is then defined as an entity with raycast collision and events.-->
-        <a-text id="pistiltext" text="color: #000000; value: Pistil; opacity: 0" position="-0.731 2.8 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
-    
-       <a-entity id="lilypistil"
-event-set__hoveredpistil = "
-                _event : hover-start;
-                _target : #pistiltext;
-                animation.property : text.opacity;
-                animation.to: 1"
-
-event-set__hoveredoffpistil = "
-                _event : hover-end;
-                _target : #pistiltext;
-                animation.property : text.opacity;
-                animation.to: 0">
-      
-             <a-entity id="lilypistilwhole" 
-                mixin="frame" 
-                 class="dissect collidable"
-                hoverable grabbable stretchable draggable droppable gridable
-                shadow                 
-                examinable="headerText: Pistil; contentText: The pistil consists of an ovary, style, and stigma. Ovules are produced inside the ovary and mature into seeds following fertilization. The stigma functions as a landing pad to catch pollen while the style is a stalk to project the stigma outward."
-                scale="0.14 0.14 0.14"
-               gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Center_Longitudinal.gltf?v=1616119609612"
-                 >
-          </a-entity>
-      </a-entity>
-   </a-entity>
-  
-    
+     
       <!-- Hand controls are defined to get raycast capability to allow button interaction while using them -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
 
-<!--The table asset is put in place    -->
-    <a-entity gltf-model="#table" scale = "0.7 0.7 0.7" position="0 0 -0.466" rotation="0 90 0"></a-entity>
 
-<!--Exambox is put in scene. Some of these fields are specific to the examinationBox.js file. Text fields are established with examinetextheader and examinetextbody occupying spaces on #calloutBg  -->
-  <a-entity id="ExamBox" gltf-model="#containerBox" position="0.945 1.125 -1.200" rotation="0 11.705 0" scale="0.4 0.4 0.4" exambox="snapedRotation: 45 0 0; snapedScale: 0.6 0.6 0.6; snapedOffset:0 0.6 0" >
-             <a-entity id="examinecallout"
-                     geometry="primitive: plane; height: 0.5"
-                       position="-0.5 0.5 0.2"
-                       rotation="0 -66 0"
-                       material="src: #calloutBg"
-                       examinecallout>
-               <a-entity id="examinetextheader" text="value: W;" position="0.138 0.166 0.006" scale="1.2 1.2 1.2"></a-entity>
-               <a-entity id="examinetextbody" text="value: C;" position="0.008 -0.045 0.004"></a-entity>
-               <a-entity id="examineAudioButton" class="dissect" gltf-model="#speakerIcon" examineaudio position="0.4 0.179 0.073" scale="0.025 0.025 0.025"></a-entity>
-               <a-entity id="attachPoint"></a-entity>
-    </a-entity>
-  </a-entity>
-  
-  
-  
-<!--   UI system test object-->
-      <a-entity  id="totem" class="dissect" rotatable gltf-model="#totemhalf" position="0.91 1.303 -0.838" scale="0.03 0.03 0.03" rotation="0 125 0">
-  <a-entity  id="totemphantom" rotatable class="dissect" gltf-model="#totemfull" visible="false"></a-entity></a-entity>
-
-  <!--   UI system buttons to emit proxy events -->
- 
-  <a-entity id="ExaminationScaleUI" layout="margin: 1.35; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
-  <a-box id="scale1button" scale="0.9 0.9 0.9" class="dissect" position="" material="color: #ebe7e0; opacity: 0.65" scalebutton="scaleDelta: -0.05; scaleMin: 0.1" geometry=""
-         sound="src: #click1; on: click"
-
-        
-         event-set__lightscale1light = "
-                _event : click;
-                _target : #scale1light;
-                animation.property : light.intensity;
-                animation.to: 20;"
-         
-         event-set__dimscale2light = "
-                _event : click;
-                _target : #scale2light;
-                animation.property : light.intensity;
-                animation.to: 0;"
-        
-         event-set__dimscale3light = "
-                _event : click;
-                _target : #scale3light;
-                animation.property : light.intensity;
-                animation.to: 0;">
-    <a-entity id="scale1light" light="type:  point;  color:  #ebe7e0;  decay:  1.5;  distance:  0.075;  intensity:  0"></a-entity>
-    
-<a-image id="scale1image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-out.png?v=1620102923166" material="" geometry="" position="0.033 1.33461 0.52" scale="1.1 1.1 1.1"></a-image>
-    </a-box>
-  
-  <a-box id="scale2button" class="dissect" position="2 0 0" material="color: #56b4e9; opacity: 0.65" scalebutton="scaleDelta: 0; scaleMax: 0.6" geometry=""
-         sound="src: #click2; on: click"
-         
-         event-set__scaled2 = "
-                _event : click;
-                _target : #attachPoint;
-                animation.property : scale;
-                animation.to: 0.03 0.03 0.03;"
-         
-        event-set__lightscale2light = "
-                _event : click;
-                _target : #scale2light;
-                animation.property : light.intensity;
-                animation.to: 20;"
-         
-         event-set__dimscale1light = "
-                _event : click;
-                _target : #scale1light;
-                animation.property : light.intensity;
-                animation.to: 0;"
-        
-         event-set__dimscale3light = "
-                _event : click;
-                _target : #scale3light;
-                animation.property : light.intensity;
-                animation.to: 0;" >
-    
-    <a-entity id="scale2light" light="type:  point;  color:  #56b4e9;  decay:  1.5;  distance:  0.075;  intensity:  20"></a-entity></a-box>
-  
-  <a-box id="scale3button" scale="1.1 1.1 1.1" class="dissect" position="4 0 0" material="color: #0072b2; opacity: 0.65" scalebutton="scaleDelta: 0.05; scaleMax: 0.6" geometry=""
-         sound="src: #click3; on: click"
-         
-         event-set__scaled3 = "
-                _event : click;
-                _target : #attachPoint;
-                animation.property : scale;
-                animation.to: 0.06 0.06 0.06;"
-         
-        event-set__lightscale3light = "
-                _event : click;
-                _target : #scale3light;
-                animation.property : light.intensity;
-                animation.to: 20;"
-         
-         event-set__dimscale1light = "
-                _event : click;
-                _target : #scale1light;
-                animation.property : light.intensity;
-                animation.to: 0;"
-        
-         event-set__dimscale2light = "
-                _event : click;
-                _target : #scale2light;
-                animation.property : light.intensity;
-                animation.to: 0;" 
-         >
-  <a-entity id="scale3light" light="type:  point;  color:  #0072b2;  decay:  1.5;  distance:  0.075;  intensity:  0"></a-entity>
-
-    <a-image id="scale3image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-in.png?v=1620102920512" material="" geometry="" position="0.033 1.33461 0.520" scale="0.9 0.9 0.9"></a-image>
-    </a-box>
-</a-entity>
-  
-<a-entity id="ExaminationToggleUI" layout="margin: 3; angle: NaN; columns: 2" scale="0.025 0.05 0.025" position="0.908 1.17 -0.88" rotation="0 130.5 0">
-  <a-cylinder id="ContextButton" class="dissect" position="" material="color: #55D142; opacity: 0.65" contextbutton geometry=""
-              sound="src: #clickyes; on: click; poolSize: 20;"
-         event-set__toggled1 = "
-                _event : click;
-                _target : #totemphantom;
-                animation.property : visible;
-                animation.to: true;"
-        
-         event-set__lighttoggle1light = "
-                _event : click;
-                _target : #toggle1light;
-                animation.property : light.intensity;
-                animation.to: 20;"
-         
-         event-set__dimtoggle2light = "
-                _event : click;
-                _target : #toggle2light;
-                animation.property : light.intensity;
-                animation.to: 0;">
-    <a-entity id="toggle1light" light="type:  point;  color:  #55D142;  decay:  1.5;  distance:  0.075;  intensity:  0"></a-entity>
-    </a-cylinder>
-  <a-cylinder id="ContextButton2" class="dissect" position="" material="color: #F0E442; opacity: 0.65" contextbutton geometry=""
-              sound="src: #clickno; on: click"
-         event-set__toggled2 = "
-                _event : click;
-                _target : #totemphantom;
-                animation.property : visible;
-                animation.to: false;"
-        
-         event-set__lighttoggle1light = "
-                _event : click;
-                _target : #toggle2light;
-                animation.property : light.intensity;
-                animation.to: 20;"
-         
-         event-set__dimtoggle2light = "
-                _event : click;
-                _target : #toggle1light;
-                animation.property : light.intensity;
-                animation.to: 0;">
-    <a-entity id="toggle2light" position="0 0.5 0" light="type:  point;  color:  #F0E442;  decay:  1.5;  distance:  0.075;  intensity:  20"></a-entity>
-    </a-cylinder>
-  </a-entity> 
-  
-   
-<!-- <a-entity id="linkbuttonui" scale="0.025 0.025 0.025" position="0.62 1.17 -1.28" rotation="0 49.5 0">
-  <a-entity id="linkbutton" class="dissect" position="-5.95081 0.34945 21.11389" material="color: #D55E00; opacity: 0.65" geometry="" sound="src: clickno; on: click" href="https://plants.ces.ncsu.edu/plants/zephyranthes-atamasco/" target="_blank"></a-entity>
-  </a-entity> -->
-  
-
-  
 </a-scene>
 </body>
