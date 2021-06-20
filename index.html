@@ -33,7 +33,21 @@
   
   <script src="./linkhref.js"></script>
 <script src="./info-message.js"></script>
-
+<script src="https://unpkg.com/aframe-troika-text/dist/aframe-troika-text.min.js"></script>
+    
+<!--     Local scripts -->
+    <script src="./playtracks.js"></script>
+    <script src="./aframe-audioanalyser-component.js"></script> 
+    <script src="./audio-level-scale-component.js"></script>
+    <script src="./audio-ring-on-beat.js"></script>
+    <script src="./audio-ring-on-beat2.js"></script>
+    <script src="./frequency-spectum-component.js"></script>
+    <script src="./spectrogram-component.js"></script>
+    <script src="./proxy-event.js"></script>
+    <script src="./info-message.js"></script>
+    <script src="./audio-light-on-beat.js"></script>
+    <script src="shader-grid-glitch.js"></script>
+    <script src="shader-hologram.js"></script>
 </head>
 <body>
   
@@ -50,6 +64,85 @@
 
     <a-asset-item id="magickeytitlingfont" src="https://cdn.glitch.com/5403985f-c618-4935-8236-9feef6f16844%2FMagicKeyTitlingFont.ttf?v=1624219939229"></a-asset-item>
     <a-asset-item id="magickey" src="https://cdn.glitch.com/5403985f-c618-4935-8236-9feef6f16844%2FMTRMagicKeyTrueOrigin.gltf?v=1624219992990" preload="auto"></a-asset-item>
+
+<!--Load your 6 audio tracks -->
+<audio id="lane1" class="music1" src="https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FLDlane1_kastelheimer.mp3?v=1620793707559" preload="auto"></audio>
+<audio id="lane2" class="music2" src="https://cdn.glitch.com/767fd2d2-6ae7-43b7-80fe-ef9da2ecdcbc%2FLDlane2_drums.mp3?v=1620345794733" preload="auto"></audio>
+<audio id="lane3" class="music3" src="https://cdn.glitch.com/767fd2d2-6ae7-43b7-80fe-ef9da2ecdcbc%2FLDlane3leadsynth.mp3?v=1620345794715" preload="auto"></audio>
+<audio id="lane4" class="music4" src="https://cdn.glitch.com/767fd2d2-6ae7-43b7-80fe-ef9da2ecdcbc%2FLDlane4backingOrgan.mp3?v=1620345794676" preload="auto"></audio> 
+<audio id="lane5" class="music5" src="https://cdn.glitch.com/767fd2d2-6ae7-43b7-80fe-ef9da2ecdcbc%2FLDlane5wailsynth.mp3?v=1620345794392" preload="auto"></audio> 
+<audio id="lane6" class="music6" src="https://cdn.glitch.com/767fd2d2-6ae7-43b7-80fe-ef9da2ecdcbc%2FLDlane6midgroundsynth.mp3?v=1620345794703" preload="auto"></audio>
+
+<!--Brand 3 Models -->        
+<a-asset-item id="whitemagickeytext" src="https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FWhiteMTRMagicKeyText.glb?v=1622588033910" preload="auto"></a-asset-item>
+<a-asset-item id="silvermagickeytext" src="https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FSilverMTRMagicKeyText.glb?v=1622588033811" preload="auto"></a-asset-item>
+<a-asset-item id="goldmagickeytext" src="https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FGoldMTRMagicKeyText.glb?v=1622588033726" preload="auto"></a-asset-item>
+<a-asset-item id="pinkmagickeytext" src="https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FPinkMTRMagicKeyText.glb?v=1622588033929" preload="auto"></a-asset-item>
+<a-asset-item id="bluemagickeytext" src="https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FBlueMTRMagicKeyText.glb?v=1622588033626" preload="auto"></a-asset-item>
+<a-asset-item id="greenmagickeytext" src="https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FGreenMTRMagicKeyText.glb?v=1622588033748" preload="auto"></a-asset-item>
+
+<!-- Text for bottom right corner pop up -->
+<a-asset-item id="messageText" src="message.html"></a-asset-item>
+
+
+ <a-mixin   
+          id="splashaway"
+                    event-set__splashaway1= "
+                _event : click;
+                _target : #startprompt;
+                animation.property : position;
+                animation.to: 0 106.5 -15         ;"
+          ></a-mixin>
+        
+   <a-mixin   
+          id="magickeywhitetextaway"
+          event-set__whitetextaway= "
+                _event : click;
+                _target : #whitemagickey;
+                animation.property : visible;
+                animation.to: false;"
+          ></a-mixin>
+           <a-mixin   
+          id="magickeysilvertextaway"
+          event-set__silvertextaway= "
+                _event : click;
+                _target : #silvermagickey;
+                animation.property : visible;
+                animation.to: false;"
+          ></a-mixin>
+           <a-mixin   
+          id="magickeygoldtextaway"
+          event-set__goldtextaway= "
+                _event : click;
+                _target : #goldmagickey;
+                animation.property : visible;
+                animation.to: false;"
+          ></a-mixin>
+           <a-mixin   
+          id="magickeypinktextaway"
+          event-set__pinktextaway= "
+                _event : click;
+                _target : #pinkmagickey;
+                animation.property : visible;
+                animation.to: false;"
+          ></a-mixin>
+           <a-mixin   
+          id="magickeybluetextaway"
+          event-set__bluetextaway= "
+                _event : click;
+                _target : #bluemagickey;
+                animation.property : visible;
+                animation.to: false;"
+          ></a-mixin>
+           <a-mixin   
+          id="magickeygreentextaway"
+          event-set__greentextaway= "
+                _event : click;
+                _target : #greenmagickey;
+                animation.property : visible;
+                animation.to: false;"
+          ></a-mixin>
+   
 
 
     
