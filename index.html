@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <title>Lily Dissection • A-Frame</title>
-  <meta name="description" content="Lily Dissection • A-Frame">
+  <meta name="description" content="MTR Magic Key • Raleig, NC">
   
 <!--   This is a series of components and plugins used -->
 <!-- AFrame webXR Library   -->
@@ -399,17 +399,25 @@ Raleigh, NC;
   
   
 <!--   Left Margin -->
-  
+  <a-entity class="mouse">
   <a-entity 
             id="pinkcube"
             material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-            class="mouse"
             rotatable
             position="-12 3 -12" 
             geometry="" 
             animation__scale="dur: 200; property: scale; startEvents: mouseenter; to: 2 2 2" 
             animation__scale_reverse="dur: 200; property: scale; startEvents: mouseleave; to: 1 1 1"
-></a-entity>
+            audioanalyser="src: #lane4; beatDetectionDecay: 0.90,
+    beatDetectionMinVolume: 5; enableBeatDetection: true"
+            audio-level-scale="positionScale: 1 40 1"
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+               event-set__textcallpink= "
+                _event : click;
+                _target : #pinkmagickey;
+                animation.property : visible;
+                animation.to: true;"
+></a-entity></a-entity>
   
   
   
