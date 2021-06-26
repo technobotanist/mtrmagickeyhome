@@ -94,14 +94,6 @@ e<!DOCTYPE html>
                 animation.to: 0 106.5 -15         ;"
           ></a-mixin>
     
-     <a-mixin   
-          id="splashin"
-                    event-set__splashin1= "
-                _event : click;
-                _target : #followuptext;
-                animation.property : position;
-                animation.to: 0 -6 -15         ;"
-          ></a-mixin>
         
    <a-mixin   
           id="magickeywhitetextaway"
@@ -289,22 +281,9 @@ e<!DOCTYPE html>
                 mixin="splashaway"
                 playtracks=""
                 class="mouse"
-    ></a-entity>
+    >
         
-<a-entity 
-          id="followuptext"
-          class="mouse"
-          playtracks="" 
-          mixin="splashaway"
-          troika-text="value:
-Play/Pause;
-                       align: center; 
-                       color: #f9dea2; 
-                       font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708; 
-                       fontSize: 3; fillOpacity:  0.5;  
-                       outlineBlur:  0.34;  outlineColor:  #8c8c8c;  outlineOpacity:  0.64;  outlineWidth:  0.02;  
-                       strokeColor:  #f9dea2;  strokeOpacity:  4.01;  strokeWidth:  0.05"
-          position="0 106.5 -15 "
+
          
           ></a-entity>
       
@@ -315,7 +294,7 @@ Play/Pause;
    <a-sky id="sky" material="color: #2b2622" geometry="radius: 1000"></a-sky>
 
       <a-entity id="zoetonehome"
-            scale="2 2 2" position="-1 -7.85087 -23.06889" rotation="0 0 0"                
+            scale="2 2 2" position="-1 -7.85087 -26" rotation="0 0 0"                
             class="mouse">
             <a-entity 
                     id="Silver"
@@ -342,7 +321,7 @@ Play/Pause;
                     audioanalyser="src: #lane2; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
                     audio-level-scale="positionScale: 1 20 1"
-                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway  splashin"
+                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway"
                     ring-on-beat="analyserEl: #Blue"
                event-set__textcallblue= "
                 _event : click;
@@ -360,7 +339,7 @@ Play/Pause;
     beatDetectionMinVolume: 5; enableBeatDetection: true"
                       ring-on-beat2="analyserEl: #Gold"
                     audio-level-scale="positionScale: 1 40 1"
-                    mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway  splashin"
+                    mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
                       event-set__textcallgold= "
                 _event : click;
                 _target : #goldmagickey;
@@ -376,7 +355,7 @@ Play/Pause;
                       audioanalyser="src: #lane4; beatDetectionDecay: 0.90,
     beatDetectionMinVolume: 5; enableBeatDetection: true"
                       audio-level-scale="positionScale: 1 40 1"
-                      mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway  splashin"
+                      mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
                event-set__textcallpink= "
                 _event : click;
                 _target : #pinkmagickey;
@@ -391,7 +370,7 @@ Play/Pause;
                       audioanalyser="src: #lane5; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
                       audio-level-scale="positionScale: 1 20 1"
-                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway splashaway splashin"
+                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway splashaway "
                                      event-set__textcallgreen= "
                 _event : click;
                 _target : #greenmagickey;
@@ -407,7 +386,7 @@ Play/Pause;
     beatDetectionMinVolume: 15; enableBeatDetection: true"
                       ring-on-beat2="analyserEl: #White"
                       audio-level-scale="positionScale: 1 20 1"
-                      mixin="magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway splashin"
+                      mixin="magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway "
                       event-set__textcallwhite= "
                 _event : click;
                 _target : #whitemagickey;
@@ -427,7 +406,7 @@ Play/Pause;
             material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
             position="-12 0 -12"
             geometry=""
-            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway splashin"
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
                event-set__textcallpink= "
                 _event : click;
                 _target : #pinkmagickey;
@@ -439,7 +418,7 @@ Play/Pause;
             material="color:  #f9dea2;  metalness:  0.5; emissive:  #f9dea2;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
             position="-12 2 -12" 
             geometry=""
-            mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway splashin"
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway "
                event-set__textcallgoldcube= "
                 _event : click;
                 _target : #goldmagickey;
@@ -453,7 +432,7 @@ Play/Pause;
             material="color:  #1ebcb8;  metalness:  0.5; emissive:  #1ebcb8;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
             position="-12 -2 -12" 
             geometry=""
-            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway splashin"
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway"
                event-set__textcallbluecube= "
                 _event : click;
                 _target : #bluemagickey;
@@ -468,7 +447,7 @@ Play/Pause;
             rotatable
             position="-12 4 -12" 
             geometry=""
-            mixin="magickeywhitetextaway magickeypinktextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway splashin"
+            mixin="magickeywhitetextaway magickeypinktextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway "
                event-set__textcallsilvercube= "
                 _event : click;
                 _target : #silvermagickey;
@@ -483,7 +462,7 @@ Play/Pause;
             rotatable
             position="-12 -4 -12" 
             geometry=""
-            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeypinktextaway splashaway splashin"
+            mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeypinktextaway splashaway"
                event-set__textcallgreencube= "
                 _event : click;
                 _target : #greenmagickey;
@@ -498,7 +477,7 @@ Play/Pause;
             rotatable
             position="-12 -6 -12" 
             geometry=""
-            mixin="magickeypinktextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway splashin"
+            mixin="magickeypinktextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway "
                event-set__textcallwhitecube= "
                 _event : click;
                 _target : #whitemagickey;
