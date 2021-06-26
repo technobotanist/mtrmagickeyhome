@@ -173,14 +173,17 @@ e<!DOCTYPE html>
       <!-- Hand controls are defined to get raycast capability to allow button interaction while using them -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
-<a-entity 
-                position="-5 0 0"
-                light="intensity: 1; type: point; castShadow: true" rotation=""
+
+  <a-entity 
+                id="overheadlight"
+                position="-5 13 0"
+                light="intensity: 1; type: point; castShadow: true"
+                rotation=""
                 light-on-beat="analyserEl: #white"
 ></a-entity>
-      
+     
     
-      <a-entity id="rig" position="0 0 0" rotation="0 0 0" >
+      <a-entity id="rig" position="-1.20899 1.01034 -1.85185" rotation="0 7 0">
     <a-entity id="eyes"
               camera="fov: 80"
               look-controls="enabled:  false;  mouseEnabled:  false"
