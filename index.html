@@ -435,6 +435,7 @@
                 animation.to: true;"
 ></a-entity>
   
+  <a-entity id="smellcomplex">
   <a-entity 
             id="silvercube"
             class="mouse"
@@ -444,11 +445,11 @@
             geometry=""
             mixin="magickeywhitetextaway magickeypinktextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway "
                event-set__textcallsilvercube= "
-                _event : click;
+                _event : hoveron;
                 _target : #silvermagickey;
                 animation.property : visible;
                 animation.to: true;"
-></a-entity>
+></a-entity></a-entity>
   
   <a-entity 
             id="greencube"
@@ -492,7 +493,47 @@ Play/Pause;
                        strokeColor:  #f9dea2;  strokeOpacity:  4.01;  strokeWidth:  0.05"
           position="-30 -86 0"></a-entity>
   
-  <a-entity id="dynamictextfield"
+  <a-entity id="dynamictextfieldmeet"
+            troika-text="value: Meet;
+                         align: center;
+                         color: #f9dea2;
+                         font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
+                         fontSize: 8; fillOpacity: 0.5; outlineBlur: 0.34; outlineColor: #8c8c8c; outlineOpacity: 0.64; outlineWidth: 0.02;
+                         strokeColor: #f9dea2; strokeOpacity: 4.01; strokeWidth: 0.05" 
+            position="-30.64096 21.81474 -33.71713" 
+            rotation="0 6 0"
+            visible="false"></a-entity>
+    <a-entity id="dynamictextfieldwatch"
+            troika-text="value: Watch;
+                         align: center;
+                         color: #f9dea2;
+                         font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
+                         fontSize: 8; fillOpacity: 0.5; outlineBlur: 0.34; outlineColor: #8c8c8c; outlineOpacity: 0.64; outlineWidth: 0.02;
+                         strokeColor: #f9dea2; strokeOpacity: 4.01; strokeWidth: 0.05" 
+            position="-30.64096 21.81474 -33.71713" 
+            rotation="0 6 0"
+            visible="false"></a-entity>
+    <a-entity id="dynamictextfieldhear"
+            troika-text="value: Hear;
+                         align: center;
+                         color: #f9dea2;
+                         font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
+                         fontSize: 8; fillOpacity: 0.5; outlineBlur: 0.34; outlineColor: #8c8c8c; outlineOpacity: 0.64; outlineWidth: 0.02;
+                         strokeColor: #f9dea2; strokeOpacity: 4.01; strokeWidth: 0.05" 
+            position="-30.64096 21.81474 -33.71713" 
+            rotation="0 6 0"
+            visible="false"></a-entity>
+    <a-entity id="dynamictextfieldwear"
+            troika-text="value: Wear;
+                         align: center;
+                         color: #f9dea2;
+                         font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
+                         fontSize: 8; fillOpacity: 0.5; outlineBlur: 0.34; outlineColor: #8c8c8c; outlineOpacity: 0.64; outlineWidth: 0.02;
+                         strokeColor: #f9dea2; strokeOpacity: 4.01; strokeWidth: 0.05" 
+            position="-30.64096 21.81474 -33.71713" 
+            rotation="0 6 0"
+            visible="false"></a-entity>
+    <a-entity id="dynamictextfieldsmell"
             troika-text="value: Smell;
                          align: center;
                          color: #f9dea2;
@@ -501,7 +542,17 @@ Play/Pause;
                          strokeColor: #f9dea2; strokeOpacity: 4.01; strokeWidth: 0.05" 
             position="-30.64096 21.81474 -33.71713" 
             rotation="0 6 0"
-            visible="false"><a-entity></a-entity></a-entity>
+            visible="false"></a-entity>
+    <a-entity id="dynamictextfieldhire"
+            troika-text="value: Hire;
+                         align: center;
+                         color: #f9dea2;
+                         font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
+                         fontSize: 8; fillOpacity: 0.5; outlineBlur: 0.34; outlineColor: #8c8c8c; outlineOpacity: 0.64; outlineWidth: 0.02;
+                         strokeColor: #f9dea2; strokeOpacity: 4.01; strokeWidth: 0.05" 
+            position="-30.64096 21.81474 -33.71713" 
+            rotation="0 6 0"
+            visible="false"></a-entity>
   
 <a-entity geometry="" id="desksurface" material="color: #592d00" position="-4.33471 -7.30578 -19.07069" rotation="" scale="56.308 1 17.753">
   <a-entity geometry="" id="desklower" material="color: #592d00" position="0 -6.84986 0" rotation="" scale="0.8 -13.31288 0.8"></a-entity></a-entity>
