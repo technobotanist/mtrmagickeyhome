@@ -1,4 +1,4 @@
-e<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <title>MTR Magic Key • mtrmagickey.com • Made with A-Frame</title>
@@ -81,7 +81,7 @@ e<!DOCTYPE html>
 <a-asset-item id="bluemagickeytext" src="https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FBlueMTRMagicKeyText.glb?v=1622588033626" preload="auto"></a-asset-item>
 <a-asset-item id="greenmagickeytext" src="https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FGreenMTRMagicKeyText.glb?v=1622588033748" preload="auto"></a-asset-item>
 
-        <a-asset-item id="candle" src="https://cdn.glitch.com/9417442b-1872-4d0f-bbb7-ac2aaff8c05a%2Fcandles.gltf?v=1624821052470" preload="auto"></a-asset-item>
+        <a-asset-item id="candle" src="https://cdn.glitch.com/9417442b-1872-4d0f-bbb7-ac2aaff8c05a%2Fcandlelight.gltf?v=1624821375574" preload="auto"></a-asset-item>
 <!-- Text for bottom right corner pop up -->
 <a-asset-item id="messageText" src="message.html"></a-asset-item>
 
@@ -159,21 +159,21 @@ e<!DOCTYPE html>
   </a-assets>
 
 <!-- At the minimum we'd also want to setup an environment light, although we might also need to explore background options -->
-  <a-light id="sun" angle="60" color="#FFF" intensity="0.4" type="hemisphere"></a-light>
-
+<!--   <a-light id="sun" angle="60" color="#FFF" intensity="0.4" type="hemisphere"></a-light>
+ -->
          
    
       <!-- Hand controls are defined to get raycast capability to allow button interaction while using them -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
 
-  <a-entity 
+<!--   <a-entity 
                 id="overheadlight"
                 position="-5 13 0"
                 light="intensity: 1; type: point; castShadow: true"
                 rotation=""
                 light-on-beat="analyserEl: #white"
-></a-entity>
+></a-entity> -->
      
     
       <a-entity id="rig" position="-1.20899 1.01034 0.04317" rotation="0 6.000000000000001 0">
@@ -483,7 +483,6 @@ e<!DOCTYPE html>
   
 <a-entity geometry="" id="desksurface" material="color: #592d00" position="-4.33471 -7.30578 -19.07069" rotation="" scale="56.308 1 17.753">
   <a-entity geometry="" id="desklower" material="color: #592d00" position="0 -6.84986 0" rotation="" scale="0.8 -13.31288 0.8"></a-entity></a-entity>
-  <a-entity id="candleshaded" gltf-model="#candle" position="-18 -6 -18" material="shader: grid-glitch"></a-entity>
-  
+  <a-entity id="candleshaded" gltf-model="#candle" position="-18 -6 -18" osition="-19.89565 -7.04206 -18.87425" scale="1.5 1.5 2"></a-entity>
 </a-scene>
 </body>
