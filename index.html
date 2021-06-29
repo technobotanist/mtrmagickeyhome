@@ -465,10 +465,31 @@
             id="silvercube"
             material="color:  #8c8c8c;  metalness:  0.5; emissive:  #8c8c8c;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
             rotatable
-            position="-12 4 -12" 
-            geometry=""
+              position="-19.3752 -1.48282 -15.09734"
+              geometry=""
             class="mouse"
-            ></a-entity> 
+            event-set__textcallsilvercube= "
+                _event : mouseenter;
+                _target : #dynamictextfieldsubsmell;
+                animation.property : visible;
+                animation.to: true;"
+               event-set__textendsilvercube= "
+                _event : mouseleave;
+                _target : #dynamictextfieldsubsmell;
+                animation.property : visible;
+                animation.to: false;">
+    <a-entity id="dynamictextfieldsubsmell"
+            troika-text="value: Smell;
+                         align: center;
+                         color: #f9dea2;
+                         font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
+                         fontSize: 4; fillOpacity: 0.5; outlineBlur: 0.34; outlineColor: #8c8c8c; outlineOpacity: 0.64; outlineWidth: 0.02;
+                         strokeColor: #f9dea2; strokeOpacity: 4.01; strokeWidth: 0.05" 
+            position="0 0 0" 
+            rotation="0 6 0"
+            visible="false"
+            class="mouse"></a-entity></a-entity> 
+    
       <a-entity id="candleshaded"
                 class="mouse"
                 gltf-model="#candle" 
@@ -480,7 +501,6 @@
             id="greencube"
             class="mouse"
             material="color:  #48bc1e;  metalness:  0.5; emissive:  #48bc1e;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-            rotatable
             position="-12 -4 -12" 
             geometry=""
             mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeypinktextaway splashaway"
@@ -495,7 +515,6 @@
             id="whitecube"
             class="mouse"
             material="color:  #ffffff;  metalness:  0.5; emissive: #ffffff;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-            rotatable
             position="-12 -6 -12" 
             geometry=""
             mixin="magickeypinktextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway "
