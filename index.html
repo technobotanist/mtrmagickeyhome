@@ -445,11 +445,25 @@
             geometry=""
             mixin="magickeywhitetextaway magickeypinktextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway "
                event-set__textcallsilvercube= "
-                _event : hoveron;
-                _target : #silvermagickey;
+                _event : mouseenter;
+                _target : #dynamictextfieldsmell;
                 animation.property : visible;
                 animation.to: true;"
-></a-entity></a-entity>
+               event-set__textendsilvercube= "
+                _event : mouseleave;
+                _target : #dynamictextfieldsmell;
+                animation.property : visible;
+                animation.to: false;"></a-entity>    
+    <a-entity id="dynamictextfieldsmell"
+            troika-text="value: Smell;
+                         align: center;
+                         color: #f9dea2;
+                         font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
+                         fontSize: 8; fillOpacity: 0.5; outlineBlur: 0.34; outlineColor: #8c8c8c; outlineOpacity: 0.64; outlineWidth: 0.02;
+                         strokeColor: #f9dea2; strokeOpacity: 4.01; strokeWidth: 0.05" 
+            position="-30.64096 21.81474 -33.71713" 
+            rotation="0 6 0"
+            visible="false"></a-entity></a-entity>
   
   <a-entity 
             id="greencube"
