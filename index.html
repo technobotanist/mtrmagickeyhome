@@ -407,19 +407,7 @@
                 _target : #pinkmagickey;
                 animation.property : visible;
                 animation.to: true;"></a-entity>
-   <a-entity 
-            id="goldcube"
-            class="mouse"
-            material="color:  #f9dea2;  metalness:  0.5; emissive:  #f9dea2;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-            position="-12 2 -12" 
-            geometry=""
-            mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway "
-               event-set__textcallgoldcube= "
-                _event : click;
-                _target : #goldmagickey;
-                animation.property : visible;
-                animation.to: true;"
-></a-entity>
+
   
      <a-entity 
             id="bluecube"
@@ -547,12 +535,12 @@
                 animation.to: true;"
                event-set__subtextendgoldcube= "
                 _event : mouseleave;
-                _target : #dynamictextfieldsubsmell;
+                _target : #dynamictextfieldsubwear;
                 animation.property : visible;
                 animation.to: false;"
             >
-      <a-entity id="dynamictextfieldsmell"
-            troika-text="value: Smell;
+      <a-entity id="dynamictextfieldwear"
+            troika-text="value: Wear;
                          align: center;
                          color: #f9dea2;
                          font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
@@ -563,8 +551,8 @@
             visible="false"
             class="mouse"
 >
-        <a-entity id="dynamictextfieldsubsmell" 
-                  troika-text="value: Smell; align: center; color: #f9dea2; font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
+        <a-entity id="dynamictextfieldsubwear" 
+                  troika-text="value: Wear; align: center; color: #f9dea2; font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
                                fontSize: 3; fillOpacity: 0.5; outlineBlur: 0.34; outlineColor: #8c8c8c; outlineOpacity: 0.64; outlineWidth: 0.02; strokeColor: #f9dea2;
                                strokeOpacity: 4.01; strokeWidth: 0.05" 
                   position="9.2455 -20.36288 20"
@@ -574,15 +562,15 @@
                   animation="property: visible; to: false">
           <a-entity></a-entity></a-entity></a-entity>
     <a-entity 
-            id="silvercube"
-            material="color:  #8c8c8c;  metalness:  0.5; emissive:  #8c8c8c;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+            id="goldcube"
+            material="color:  #f9dea2;  metalness:  0.5; emissive:  #f9dea2;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
             rotatable
               position="-19.3752 -1.48282 -15.09734"
               geometry=""
             class="mouse">
     </a-entity> 
     
-      <a-entity id="candleshaded"
+      <a-entity id="candleshaded2"
                 class="mouse"
                 gltf-model="#candle" 
                 position="-19.89565 -7.04206 -18.87425"
