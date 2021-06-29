@@ -436,7 +436,8 @@
 ></a-entity>
   
   <a-entity id="smellcomplex"
-            href="https://github.com/gasolin/aframe-href-component"
+            href="https://en.wikipedia.org/wiki/Sense_of_smell"
+            target="_blank"
             event-set__textcallsilvercube= "
                 _event : mouseenter;
                 _target : #dynamictextfieldsmell;
@@ -460,7 +461,17 @@
             rotation="0 6 0"
             visible="false"
             class="mouse"
-></a-entity>
+>
+        <a-entity id="dynamictextfieldsubsmell" 
+                  troika-text="value: Smell; align: center; color: #f9dea2; font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
+                               fontSize: 2; fillOpacity: 0.5; outlineBlur: 0.34; outlineColor: #8c8c8c; outlineOpacity: 0.64; outlineWidth: 0.02; strokeColor: #f9dea2;
+                               strokeOpacity: 4.01; strokeWidth: 0.05" 
+                  position="9.2455 -22.36288 21.24162"
+                  rotation="0 35.38931117405043 0"
+                  visible="false"
+                  class="mouse"
+                  animation="property: visible; to: false">
+          <a-entity></a-entity></a-entity></a-entity>
     <a-entity 
             id="silvercube"
             material="color:  #8c8c8c;  metalness:  0.5; emissive:  #8c8c8c;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
@@ -477,18 +488,16 @@
                 _event : mouseleave;
                 _target : #dynamictextfieldsubsmell;
                 animation.property : visible;
-                animation.to: false;">
-    <a-entity id="dynamictextfieldsubsmell"
-            troika-text="value: Smell;
-                         align: center;
-                         color: #f9dea2;
-                         font: https://cdn.glitch.com/b0549471-c315-468a-a311-ae093a717da9%2FMagicKeyTitlingFont.ttf?v=1620941414708;
-                         fontSize: 4; fillOpacity: 0.5; outlineBlur: 0.34; outlineColor: #8c8c8c; outlineOpacity: 0.64; outlineWidth: 0.02;
-                         strokeColor: #f9dea2; strokeOpacity: 4.01; strokeWidth: 0.05" 
-            position="0 0 0" 
-            rotation="0 6 0"
-            visible="false"
-            class="mouse"></a-entity></a-entity> 
+                animation.to: false;"
+              event-set__growsilvercube= "
+                _event : mouseenter;
+                animation.property : scale;
+                animation.to: 2 2 2;"
+               event-set__shrinksilvercube= "
+                _event : mouseleave;
+               animation.property : scale;
+                animation.to: 1 1 1;">
+    </a-entity> 
     
       <a-entity id="candleshaded"
                 class="mouse"
