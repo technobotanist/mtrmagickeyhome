@@ -164,9 +164,8 @@
         </a-entity>
 
         <a-entity id="responsivetext"
-                  
-                  animation_textscale="property: scale; to: 4 4 4; dur: 30000; easing: linear; dir: alternate; loop: true; autoplay: true"
-                  >
+                  animation_textscale="property: scale; to: 4 4 4; dur: 30000; easing: linear; dir: alternate; loop: true">
+   
             <a-entity id="whitemagickey"
                       visible="false"
                       rotation="0 6 0"
@@ -177,11 +176,12 @@
                       rotatable
                       class="mouse"
                       light="color: #ffffff; groundColor: #ffffff; intensity: 5; type: point; castShadow: true">
-            <a-entity id="whitemagickeylight"
-          position="0 0 10"
-          light-on-beat="analyserEl: #White"
-          light="color: #ffffff; groundColor: #ffffff; intensity: 1; type: point; castShadow: true"></a-entity></a-entity>
-           
+                <a-entity id="whitemagickeylight"
+                          position="0 0 10"
+                          light-on-beat="analyserEl: #White"
+                          light="color: #ffffff; groundColor: #ffffff; intensity: 1; type: point; castShadow: true"></a-entity>
+            </a-entity>
+
             <a-entity id="silvermagickey"
                       visible="false"
                       rotation="0 6 0"
