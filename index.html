@@ -260,134 +260,120 @@
       
       
       <a-entity id="zoetonecomplex">
-<a-entity 
-          id="startprompt"
-          playtracks="" 
-          mixin="splashaway"
-          position="0 3.5 -15"
+          <a-entity id="startprompt"
+                    playtracks=""
+                    mixin="splashaway"
+                    position="0 3.5 -15"></a-entity>
 
-          ></a-entity>
 
-      <a-entity id="playbuttonkey"
-                rotation="4.95608492788162 31.83296213967341 -1.971547773045163"
-                position="-2.25 -6.43056 -14.64267"
-                scale="0.4 0.4 0.4"
-                gltf-model="#magickey"
-                mixin="splashaway"
-                playtracks=""
-                class="mouse"
-    >
-        
+          <a-entity id="playbuttonkey"
+                    rotation="56.609376074515595 87.67342885312344 96.6138622883448" 
+                    position="-2.25 0.92613 -14.64267" 
+                    scale="0.4 0.4 0.4"
+                    gltf-model="#magickey"
+                    mixin="splashaway"
+                    playtracks=""
+                    class="mouse">
 
-         
+
           </a-entity>
-      
 
 
-      
-      
-   <a-sky id="sky" material="color: #2b2622" geometry="radius: 1000"></a-sky>
 
-      <a-entity id="zoetonehome"
-            scale="2 2 2" position="-1 -7.85087 -26" rotation="0 0 0"                
-            class="mouse">
-            <a-entity 
-                    id="Silver"
-                    position="-3 0 0" 
-                    geometry="primitive: sphere"
-                      material="color:  #8c8c8c;  metalness:  0.5; emissive:  #8c8c8c;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                     class="mouse"
-                      audioanalyser="src: #lane1; beatDetectionDecay: 0.99,
+
+          <a-sky id="sky" material="color: #2b2622" geometry="radius: 1000"></a-sky>
+          <a-entity id="zoetonehome"
+                    scale="2 2 2" position="-1 -7.85087 -26" rotation="0 0 0"
+                    class="mouse">
+              <a-entity id="Silver"
+                        position="-3 0 0"
+                        geometry="primitive: sphere"
+                        material="color:  #8c8c8c;  metalness:  0.5; emissive:  #8c8c8c;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                        class="mouse"
+                        audioanalyser="src: #lane1; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
-                    audio-level-scale="positionScale: 1 20 1"
-                    mixin="magickeywhitetextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway  splashin"
-               event-set__textcallsilver= "
+                        audio-level-scale="positionScale: 1 20 1"
+                        mixin="magickeywhitetextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway  splashin"
+                        event-set__textcallsilver="
                 _event : click;
                 _target : #silvermagickey;
                 animation.property : visible;
-                animation.to: true;"
-           ></a-entity>
-            <a-entity 
-                    id="Blue" 
-                    position="3 0 0" 
-                    geometry="primitive: sphere"
-                      material="color:  #1ebcb8;  metalness:  0.5; emissive:  #1ebcb8;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                    class="mouse"
-                    audioanalyser="src: #lane2; beatDetectionDecay: 0.99,
+                animation.to: true;"></a-entity>
+              <a-entity id="Blue"
+                        position="3 0 0"
+                        geometry="primitive: sphere"
+                        material="color:  #1ebcb8;  metalness:  0.5; emissive:  #1ebcb8;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                        class="mouse"
+                        audioanalyser="src: #lane2; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
-                    audio-level-scale="positionScale: 1 20 1"
-                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway"
-                    ring-on-beat="analyserEl: #Blue"
-               event-set__textcallblue= "
+                        audio-level-scale="positionScale: 1 20 1"
+                        mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway"
+                        ring-on-beat="analyserEl: #Blue"
+                        event-set__textcallblue="
                 _event : click;
                 _target : #bluemagickey;
                 animation.property : visible;
-                animation.to: true;"
- ></a-entity>
-            <a-entity 
-                      id="Gold" 
-                    position="-1.5 0" 
-                    geometry="primitive: sphere"
-                      material="color:  #f9dea2;  metalness:  0.5; emissive:  #f9dea2;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                    class="mouse"
-                      audioanalyser="src: #lane3; beatDetectionDecay: 0.90,
+                animation.to: true;"></a-entity>
+              <a-entity id="Gold"
+                        position="-1.5 0"
+                        geometry="primitive: sphere"
+                        material="color:  #f9dea2;  metalness:  0.5; emissive:  #f9dea2;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                        class="mouse"
+                        audioanalyser="src: #lane3; beatDetectionDecay: 0.90,
     beatDetectionMinVolume: 5; enableBeatDetection: true"
-                      ring-on-beat2="analyserEl: #Gold"
-                    audio-level-scale="positionScale: 1 40 1"
-                    mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
-                      event-set__textcallgold= "
+                        ring-on-beat2="analyserEl: #Gold"
+                        audio-level-scale="positionScale: 1 40 1"
+                        mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
+                        event-set__textcallgold="
                 _event : click;
                 _target : #goldmagickey;
                 animation.property : visible;
-                animation.to: true;"
-></a-entity>
-            <a-entity 
-                      id="Pink" 
-                      position="1.5 0 0"
-                      geometry="primitive: sphere" 
-                      material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                      class="mouse"
-                      audioanalyser="src: #lane4; beatDetectionDecay: 0.90,
+                animation.to: true;"></a-entity>
+              <a-entity id="Pink"
+                        position="1.5 0 0"
+                        geometry="primitive: sphere"
+                        material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                        class="mouse"
+                        audioanalyser="src: #lane4; beatDetectionDecay: 0.90,
     beatDetectionMinVolume: 5; enableBeatDetection: true"
-                      audio-level-scale="positionScale: 1 40 1"
-                      mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
-               event-set__textcallpink= "
+                        audio-level-scale="positionScale: 1 40 1"
+                        mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+                        event-set__textcallpink="
                 _event : click;
                 _target : #pinkmagickey;
                 animation.property : visible;
-                animation.to: true;"
-></a-entity>
-            <a-entity id="Green" 
-                      position="4.5 0 0" 
-                      geometry="primitive: sphere"
-                      material="color:  #48bc1e;  metalness:  0.5; emissive:  #48bc1e;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                      class="mouse"
-                      audioanalyser="src: #lane5; beatDetectionDecay: 0.99,
+                animation.to: true;"></a-entity>
+              <a-entity id="Green"
+                        position="4.5 0 0"
+                        geometry="primitive: sphere"
+                        material="color:  #48bc1e;  metalness:  0.5; emissive:  #48bc1e;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                        class="mouse"
+                        audioanalyser="src: #lane5; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
-                      audio-level-scale="positionScale: 1 20 1"
-                    mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway splashaway "
-                                     event-set__textcallgreen= "
+                        audio-level-scale="positionScale: 1 20 1"
+                        mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway splashaway "
+                        event-set__textcallgreen="
                 _event : click;
                 _target : #greenmagickey;
                 animation.property : visible;
-                animation.to: true;"
-></a-entity>
-            <a-entity id="White" 
-                      position="-4.5 0 0" 
-                      geometry="primitive: sphere" 
-                      material="color:  #ffffff;  metalness:  0.5; emissive:  #ffffff;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                      class="mouse"
-                      audioanalyser="src: #lane6; beatDetectionDecay: 0.99,
+                animation.to: true;"></a-entity>
+              <a-entity id="White"
+                        position="-4.5 0 0"
+                        geometry="primitive: sphere"
+                        material="color:  #ffffff;  metalness:  0.5; emissive:  #ffffff;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                        class="mouse"
+                        audioanalyser="src: #lane6; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
-                      ring-on-beat2="analyserEl: #White"
-                      audio-level-scale="positionScale: 1 20 1"
-                      mixin="magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway "
-                      event-set__textcallwhite= "
+                        ring-on-beat2="analyserEl: #White"
+                        audio-level-scale="positionScale: 1 20 1"
+                        mixin="magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway "
+                        event-set__textcallwhite="
                 _event : click;
                 _target : #whitemagickey;
                 animation.property : visible;
-                animation.to: true;"
-></a-entity></a-entity></a-entity>
+                animation.to: true;"></a-entity>
+          </a-entity>
+      </a-entity>
 
 
   
