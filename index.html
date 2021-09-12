@@ -51,352 +51,349 @@
 </head>
 <body>
   
-<a-scene 
-      webxr="referenceSpaceType: local"
-      cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
-      event-set__click="_event:click;"
-      info-message="htmlSrc: #messageText"
-      
-         >
-  
-<!-- Media assets used throughout experience    -->
-  <a-assets>
+    <a-scene webxr="referenceSpaceType: local"
+             cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
+             event-set__click="_event:click;"
+             info-message="htmlSrc: #messageText">
 
-    <a-asset-item id="magickeytitlingfont" src="./assets/MagicKeyTitlingFont.ttf"></a-asset-item>
-    <a-asset-item id="magickey" src="./assets/TheMagicKey.glb" preload="auto"></a-asset-item>
+        <!-- Media assets used throughout experience    -->
+        <a-assets>
+            <a-asset-item id="magickeytitlingfont" src="./assets/MagicKeyTitlingFont.ttf"></a-asset-item>
+            <a-asset-item id="magickey" src="./assets/TheMagicKey.glb" preload="auto"></a-asset-item>
+            <!--Load your 6 audio tracks -->
+            <audio id="lane1" class="music1" src="./assets/LDlane1_kastelheimer.mp3" preload="auto"></audio>
+            <audio id="lane2" class="music2" src="./assets/LDlane2_drums.mp3" preload="auto"></audio>
+            <audio id="lane3" class="music3" src="./assets/LDlane3leadsynth.mp3" preload="auto"></audio>
+            <audio id="lane4" class="music4" src="./assets/LDlane4backingOrgan.mp3" preload="auto"></audio>
+            <audio id="lane5" class="music5" src="./assets/LDlane5wailsynth.mp3" preload="auto"></audio>
+            <audio id="lane6" class="music6" src="./assets/LDlane6midgroundsynth.mp3" preload="auto"></audio>
+            <!--Brand 3 Models -->
+            <a-asset-item id="whitemagickeytext" src="./assets/WhiteMTRMagicKeyText.glb" preload="auto"></a-asset-item>
+            <a-asset-item id="silvermagickeytext" src="./assets/SilverMTRMagicKeyText.glb" preload="auto"></a-asset-item>
+            <a-asset-item id="goldmagickeytext" src="./assets/GoldMTRMagicKeyText.glb" preload="auto"></a-asset-item>
+            <a-asset-item id="pinkmagickeytext" src="./assets/PinkMTRMagicKeyText.glb" preload="auto"></a-asset-item>
+            <a-asset-item id="bluemagickeytext" src="./assets/BlueMTRMagicKeyText.glb" preload="auto"></a-asset-item>
+            <a-asset-item id="greenmagickeytext" src="./assets/GreenMTRMagicKeyText.glb" preload="auto"></a-asset-item>
+            <a-asset-item id="candle" src="./assets/candlelight.gltf" preload="auto"></a-asset-item>
+            <!-- Text for bottom right corner pop up -->
+            <a-asset-item id="messageText" src="message.html"></a-asset-item>
 
-<!--Load your 6 audio tracks -->
-<audio id="lane1" class="music1" src="./assets/LDlane1_kastelheimer.mp3" preload="auto"></audio>
-<audio id="lane2" class="music2" src="./assets/LDlane2_drums.mp3" preload="auto"></audio>
-<audio id="lane3" class="music3" src="./assets/LDlane3leadsynth.mp3" preload="auto"></audio>
-<audio id="lane4" class="music4" src="./assets/LDlane4backingOrgan.mp3" preload="auto"></audio> 
-<audio id="lane5" class="music5" src="./assets/LDlane5wailsynth.mp3" preload="auto"></audio> 
-<audio id="lane6" class="music6" src="./assets/LDlane6midgroundsynth.mp3" preload="auto"></audio>
-
-<!--Brand 3 Models -->        
-<a-asset-item id="whitemagickeytext" src="./assets/WhiteMTRMagicKeyText.glb" preload="auto"></a-asset-item>
-<a-asset-item id="silvermagickeytext" src="./assets/SilverMTRMagicKeyText.glb" preload="auto"></a-asset-item>
-<a-asset-item id="goldmagickeytext" src="./assets/GoldMTRMagicKeyText.glb" preload="auto"></a-asset-item>
-<a-asset-item id="pinkmagickeytext" src="./assets/PinkMTRMagicKeyText.glb" preload="auto"></a-asset-item>
-<a-asset-item id="bluemagickeytext" src="./assets/BlueMTRMagicKeyText.glb" preload="auto"></a-asset-item>
-<a-asset-item id="greenmagickeytext" src="./assets/GreenMTRMagicKeyText.glb" preload="auto"></a-asset-item>
-
-        <a-asset-item id="candle" src="./assets/candlelight.gltf" preload="auto"></a-asset-item>
-<!-- Text for bottom right corner pop up -->
-<a-asset-item id="messageText" src="message.html"></a-asset-item>
-
-
- <a-mixin   
-          id="splashaway"
-                    event-set__splashaway1= "
+            <a-mixin id="splashaway"
+                     event-set__splashaway1="
                 _event : click;
                 _target : #startprompt;
                 animation.property : position;
-                animation.to: 0 106.5 -15         ;"
-          ></a-mixin>
-    
-        
-   <a-mixin   
-          id="magickeywhitetextaway"
-          event-set__whitetextaway= "
+                animation.to: 0 106.5 -15         ;"></a-mixin>
+
+
+            <a-mixin id="magickeywhitetextaway"
+                     event-set__whitetextaway="
                 _event : click;
                 _target : #whitemagickey;
                 animation.property : visible;
-                animation.to: false;"
-          ></a-mixin>
-           <a-mixin   
-          id="magickeysilvertextaway"
-          event-set__silvertextaway= "
+                animation.to: false;"></a-mixin>
+            <a-mixin id="magickeysilvertextaway"
+                     event-set__silvertextaway="
                 _event : click;
                 _target : #silvermagickey;
                 animation.property : visible;
-                animation.to: false;"
-          ></a-mixin>
-           <a-mixin   
-          id="magickeygoldtextaway"
-          event-set__goldtextaway= "
+                animation.to: false;"></a-mixin>
+            <a-mixin id="magickeygoldtextaway"
+                     event-set__goldtextaway="
                 _event : click;
                 _target : #goldmagickey;
                 animation.property : visible;
-                animation.to: false;"
-          ></a-mixin>
-           <a-mixin   
-          id="magickeypinktextaway"
-          event-set__pinktextaway= "
+                animation.to: false;"></a-mixin>
+            <a-mixin id="magickeypinktextaway"
+                     event-set__pinktextaway="
                 _event : click;
                 _target : #pinkmagickey;
                 animation.property : visible;
-                animation.to: false;"
-          ></a-mixin>
-           <a-mixin   
-          id="magickeybluetextaway"
-          event-set__bluetextaway= "
+                animation.to: false;"></a-mixin>
+            <a-mixin id="magickeybluetextaway"
+                     event-set__bluetextaway="
                 _event : click;
                 _target : #bluemagickey;
                 animation.property : visible;
-                animation.to: false;"
-          ></a-mixin>
-           <a-mixin   
-          id="magickeygreentextaway"
-          event-set__greentextaway= "
+                animation.to: false;"></a-mixin>
+            <a-mixin id="magickeygreentextaway"
+                     event-set__greentextaway="
                 _event : click;
                 _target : #greenmagickey;
                 animation.property : visible;
-                animation.to: false;"
-          ></a-mixin>
-   
+                animation.to: false;"></a-mixin>
 
 
-    
 
 
-<!-- Sounds used within the interaction system-->
-<a-sound id="click1" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fclick1dry.mp3?v=1620252061034"></a-sound>
-<a-sound id="click2" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fclick2dry.mp3?v=1620252061033"></a-sound>
-<a-sound id="click3" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fclick3dry.mp3?v=1620252061083"></a-sound>
-<a-sound id="clickyes" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FclickYesdry.mp3?v=1620252061034"></a-sound>  
-<a-sound id="clickno" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FclickNodry.mp3?v=1620252061144"></a-sound>    
-  </a-assets>
+            <!-- Sounds used within the interaction system-->
+            <a-sound id="click1" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fclick1dry.mp3?v=1620252061034"></a-sound>
+            <a-sound id="click2" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fclick2dry.mp3?v=1620252061033"></a-sound>
+            <a-sound id="click3" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fclick3dry.mp3?v=1620252061083"></a-sound>
+            <a-sound id="clickyes" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FclickYesdry.mp3?v=1620252061034"></a-sound>
+            <a-sound id="clickno" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FclickNodry.mp3?v=1620252061144"></a-sound>
+        </a-assets>
+        <!-- At the minimum we'd also want to setup an environment light, although we might also need to explore background options -->
+        <!--   <a-light id="sun" angle="60" color="#FFF" intensity="0.4" type="hemisphere"></a-light>
+     -->
+        <!-- Hand controls are defined to get raycast capability to allow button interaction while using them -->
+        <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+        <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
+        <!--   <a-entity
+                    id="overheadlight"
+                    position="-5 13 0"
+                    light="intensity: 1; type: point; castShadow: true"
+                    rotation=""
+                    light-on-beat="analyserEl: #white"
+    ></a-entity> -->
 
-<!-- At the minimum we'd also want to setup an environment light, although we might also need to explore background options -->
-<!--   <a-light id="sun" angle="60" color="#FFF" intensity="0.4" type="hemisphere"></a-light>
- -->
-         
-   
-      <!-- Hand controls are defined to get raycast capability to allow button interaction while using them -->
-      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
-      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
 
-<!--   <a-entity 
-                id="overheadlight"
-                position="-5 13 0"
-                light="intensity: 1; type: point; castShadow: true"
-                rotation=""
-                light-on-beat="analyserEl: #white"
-></a-entity> -->
-     
-    
-      <a-entity id="rig" position="-1.20899 1.01034 4" rotation="0 6.000000000000001 0">
-    <a-entity id="eyes"
-              camera="fov: 80"
-              look-controls="enabled:  false;  mouseEnabled:  false"
-              position=""
-              rotation=""
-              raycaster="objects: .mouse; direction: -24 -3 0;" cursor="rayOrigin: mouse"
-              static-body="shape: sphere; sphereRadius: 0.001"
-              super-hands="colliderEvent: raycaster-intersection;
+        <a-entity id="rig" position="-1.20899 1.01034 4" rotation="0 6.000000000000001 0">
+            <a-entity id="eyes"
+                      camera="fov: 80"
+                      look-controls="enabled:  false;  mouseEnabled:  false"
+                      position=""
+                      rotation=""
+                      raycaster="objects: .mouse; direction: -24 -3 0;" cursor="rayOrigin: mouse"
+                      static-body="shape: sphere; sphereRadius: 0.001"
+                      super-hands="colliderEvent: raycaster-intersection;
                              colliderEventProperty: els;
                              colliderEndEvent:raycaster-intersection-cleared;
                              colliderEndEventProperty: clearedEls;">
-      </a-entity>
-    </a-entity>  
-      
-      <a-entity id="responsivetext">
-      <a-entity id="whitemagickey"
-          visible="false"
-          rotation="0 6 0" 
-          position="-6.50 20 -40"
-          gltf-model="#whitemagickeytext" 
-          scale="15 15 15"
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="responsivetext">
+            <a-entity id="whitemagickey"
+                      visible="false"
+                      rotation="0 6 0"
+                      position="-6.50 20 -40"
+                      gltf-model="#whitemagickeytext"
+                      scale="15 15 15"
+                      light-on-beat="analyserEl: #White"
+                      rotatable
+                      class="mouse"
+                      light="color: #ffffff; groundColor: #ffffff; intensity: 5; type: point; castShadow: true">
+            <a-entity id="whitemagickeylight"
+          position="0 0 10"
           light-on-beat="analyserEl: #White"
-          rotatable
-          class="mouse"
-          light="color: #ffffff; groundColor: #ffffff; intensity: 5; type: point; castShadow: true"
-></a-entity>
-        <a-entity id="silvermagickey" 
-          visible="false"
-          rotation="0 6 0" 
-          position="-6.50 20 -40"
-          gltf-model="#silvermagickeytext" 
-          scale="15 15 15"
-          light-on-beat="analyserEl: #Silver"
-          rotatable          class="mouse"
-          light="color: #8c8c8c; groundColor: #8c8c8c; intensity: 5; type: point; castShadow: true"
-></a-entity>
-        <a-entity id="goldmagickey" 
-          visible="true"
-          rotation="0 6 0" 
-          position="-6.50 20 -40"
-          gltf-model="#goldmagickeytext" 
-          scale="15 15 15"
-          light-on-beat="analyserEl: #Gold"
-          rotatable          class="mouse"
-          light="color: #f9dea2; groundColor: #f9dea2; intensity: 5; type: point; castShadow: true"
-></a-entity>
-        <a-entity id="pinkmagickey" 
-          visible="false"
-          rotation="" 
-          position="-6.50 20 -40"
-          gltf-model="#pinkmagickeytext" 
-          scale="15 15 15"
-          light-on-beat="analyserEl: #Pink"
-          rotatable          class="mouse"
-          light="color: #df7592; groundColor: #df7592; intensity: 5; type: point; castShadow: true"
-></a-entity>
-        <a-entity id="bluemagickey"
-          visible="false"
-          rotation="0 6 0" 
-          position="-6.50 20 -40"
-          gltf-model="#bluemagickeytext" 
-          scale="15 15 15"
-          light-on-beat="analyserEl: #Blue"
-          rotatable          class="mouse"
-          light="color: #1ebcb8; groundColor: #1ebcb8; intensity: 5; type: point; castShadow: true"
-></a-entity>
-                <a-entity id="greenmagickey"
-          visible="false"
-          rotation="0 6 0" 
-          position="-6.50 20 -40"
-          gltf-model="#greenmagickeytext" 
-          scale="15 15 15"
-          light-on-beat="analyserEl: #Green"
-          class="mouse"
-          light="color: #48bc1e; groundColor: #48bc1e; intensity: 5; type: point; castShadow: true"
-          rotatable
-></a-entity>
-      
-      </a-entity>
-      
-      
-      <a-entity id="zoetonecomplex">
-          <a-entity id="startprompt"
-                    playtracks=""
-                    mixin="splashaway"
-                    position="0 3.5 -15"></a-entity>
+          light="color: #ffffff; groundColor: #ffffff; intensity: 5; type: point; castShadow: true"></a-entity></a-entity>
+           
+            <a-entity id="silvermagickey"
+                      visible="false"
+                      rotation="0 6 0"
+                      position="-6.50 20 -40"
+                      gltf-model="#silvermagickeytext"
+                      scale="15 15 15"
+                      light-on-beat="analyserEl: #Silver"
+                      rotatable class="mouse"
+                      light="color: #8c8c8c; groundColor: #8c8c8c; intensity: 5; type: point; castShadow: true">
+                <a-entity id="silvermagickeylight"
+                          position="0 0 10"
+                          light-on-beat="analyserEl: #Silver"
+                          light="color: #8c8c8c; groundColor: #8c8c8c; intensity: 5; type: point; castShadow: true"></a-entity>
+            </a-entity>
+
+            <a-entity id="goldmagickey"
+                      visible="true"
+                      rotation="0 6 0"
+                      position="-6.50 20 -40"
+                      gltf-model="#goldmagickeytext"
+                      scale="15 15 15"
+                      light-on-beat="analyserEl: #Gold"
+                      rotatable class="mouse"
+                      light="color: #f9dea2; groundColor: #f9dea2; intensity: 5; type: point; castShadow: true">
+                <a-entity id="goldmagickeylight"
+                          position="0 0 10"
+                          light-on-beat="analyserEl: #Gold"
+                          light="color: #f9dea2; groundColor: #f9dea2; intensity: 5; type: point; castShadow: true"></a-entity>
+            </a-entity>
+
+            <a-entity id="pinkmagickey"
+                      visible="false"
+                      rotation=""
+                      position="-6.50 20 -40"
+                      gltf-model="#pinkmagickeytext"
+                      scale="15 15 15"
+                      light-on-beat="analyserEl: #Pink"
+                      rotatable class="mouse"
+                      light="color: #df7592; groundColor: #df7592; intensity: 5; type: point; castShadow: true">
+                <a-entity id="pinkmagickeylight"
+                          position="0 0 10"
+                          light-on-beat="analyserEl: #Pink"
+                          light="color: #df7592; groundColor: #df7592; intensity: 5; type: point; castShadow: true"></a-entity>
+            </a-entity>
+
+            <a-entity id="bluemagickey"
+                      visible="false"
+                      rotation="0 6 0"
+                      position="-6.50 20 -40"
+                      gltf-model="#bluemagickeytext"
+                      scale="15 15 15"
+                      light-on-beat="analyserEl: #Blue"
+                      rotatable class="mouse"
+                      light="color: #1ebcb8; groundColor: #1ebcb8; intensity: 5; type: point; castShadow: true">
+                <a-entity id="bluemagickeylight"
+                          position="0 0 10"
+                          light-on-beat="analyserEl: #Blue"
+                          light="color: #1ebcb8; groundColor: #1ebcb8; intensity: 5; type: point; castShadow: true"></a-entity>
+            </a-entity>
+
+            <a-entity id="greenmagickey"
+                      visible="false"
+                      rotation="0 6 0"
+                      position="-6.50 20 -40"
+                      gltf-model="#greenmagickeytext"
+                      scale="15 15 15"
+                      light-on-beat="analyserEl: #Green"
+                      class="mouse"
+                      light="color: #48bc1e; groundColor: #48bc1e; intensity: 5; type: point; castShadow: true"
+                      rotatable>
+                <a-entity id="greenmagickeylight"
+                          position="0 0 10"
+                          light-on-beat="analyserEl: #Green"
+                          light="color: #48bc1e; groundColor: #48bc1e; intensity: 5; type: point; castShadow: true"
+                          rotatable></a-entity>
+            </a-entity>
+
+        </a-entity>
 
 
-          <a-entity id="playbuttonkey"
-                    rotation="55.25 75 81"
-                    position="-17.29 -23.77 -11.5758"
-                    scale="0.45 0.45 0.45"
-                    gltf-model="#magickey"
-                    mixin=""
-                    playtracks=""
-                    class="mouse">
+
+        <a-entity id="zoetonecomplex">
+            <a-entity id="startprompt"
+                      playtracks=""
+                      mixin="splashaway"
+                      position="0 3.5 -15"></a-entity>
 
 
-          </a-entity>
+            <a-entity id="playbuttonkey"
+                      rotation="55.25 75 81"
+                      position="-17.29 -23.77 -11.5758"
+                      scale="0.45 0.45 0.45"
+                      gltf-model="#magickey"
+                      mixin=""
+                      playtracks=""
+                      class="mouse">
+
+
+            </a-entity>
 
 
 
 
-          <a-sky id="sky" material="color: #2b2622" geometry="radius: 1000"></a-sky>
-          <a-entity id="zoetonehome"
-                    scale="2 2 2" position="-6 -15 -26" rotation="0 0 0"
-                    class="mouse">
-              <a-entity id="Silver"
-                        position="-3 0 0"
-                        geometry="primitive: sphere"
-                        material="color:  #8c8c8c;  metalness:  0.5; emissive:  #8c8c8c;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                        class="mouse"
-                        audioanalyser="src: #lane1; beatDetectionDecay: 0.99,
+            <a-sky id="sky" material="color: #2b2622" geometry="radius: 1000"></a-sky>
+            <a-entity id="zoetonehome"
+                      scale="2 2 2" position="-6 -15 -26" rotation="0 0 0"
+                      class="mouse">
+                <a-entity id="Silver"
+                          position="-3 0 0"
+                          geometry="primitive: sphere"
+                          material="color:  #8c8c8c;  metalness:  0.5; emissive:  #8c8c8c;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                          class="mouse"
+                          audioanalyser="src: #lane1; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
-                        audio-level-scale="positionScale: 1 20 1"
-                        mixin="magickeywhitetextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway  splashin"
-                        event-set__textcallsilver="
+                          audio-level-scale="positionScale: 1 20 1"
+                          mixin="magickeywhitetextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway  splashin"
+                          event-set__textcallsilver="
                 _event : click;
                 _target : #silvermagickey;
                 animation.property : visible;
                 animation.to: true;"></a-entity>
-              <a-entity id="Blue"
-                        position="3 0 0"
-                        geometry="primitive: sphere"
-                        material="color:  #1ebcb8;  metalness:  0.5; emissive:  #1ebcb8;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                        class="mouse"
-                        audioanalyser="src: #lane2; beatDetectionDecay: 0.99,
+                <a-entity id="Blue"
+                          position="3 0 0"
+                          geometry="primitive: sphere"
+                          material="color:  #1ebcb8;  metalness:  0.5; emissive:  #1ebcb8;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                          class="mouse"
+                          audioanalyser="src: #lane2; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
-                        audio-level-scale="positionScale: 1 20 1"
-                        mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway"
-                        ring-on-beat="analyserEl: #Blue"
-                        event-set__textcallblue="
+                          audio-level-scale="positionScale: 1 20 1"
+                          mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeygreentextaway splashaway"
+                          ring-on-beat="analyserEl: #Blue"
+                          event-set__textcallblue="
                 _event : click;
                 _target : #bluemagickey;
                 animation.property : visible;
                 animation.to: true;"></a-entity>
-              <a-entity id="Gold"
-                        position="-1.5 0"
-                        geometry="primitive: sphere"
-                        material="color:  #f9dea2;  metalness:  0.5; emissive:  #f9dea2;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                        class="mouse"
-                        audioanalyser="src: #lane3; beatDetectionDecay: 0.90,
+                <a-entity id="Gold"
+                          position="-1.5 0"
+                          geometry="primitive: sphere"
+                          material="color:  #f9dea2;  metalness:  0.5; emissive:  #f9dea2;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                          class="mouse"
+                          audioanalyser="src: #lane3; beatDetectionDecay: 0.90,
     beatDetectionMinVolume: 5; enableBeatDetection: true"
-                        ring-on-beat2="analyserEl: #Gold"
-                        audio-level-scale="positionScale: 1 40 1"
-                        mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
-                        event-set__textcallgold="
+                          ring-on-beat2="analyserEl: #Gold"
+                          audio-level-scale="positionScale: 1 40 1"
+                          mixin="magickeywhitetextaway magickeysilvertextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway"
+                          event-set__textcallgold="
                 _event : click;
                 _target : #goldmagickey;
                 animation.property : visible;
                 animation.to: true;"></a-entity>
-              <a-entity id="Pink"
-                        position="1.5 0 0"
-                        geometry="primitive: sphere"
-                        material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                        class="mouse"
-                        audioanalyser="src: #lane4; beatDetectionDecay: 0.90,
+                <a-entity id="Pink"
+                          position="1.5 0 0"
+                          geometry="primitive: sphere"
+                          material="color:  #df7592;  metalness:  0.5; emissive:  #df7592;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                          class="mouse"
+                          audioanalyser="src: #lane4; beatDetectionDecay: 0.90,
     beatDetectionMinVolume: 5; enableBeatDetection: true"
-                        audio-level-scale="positionScale: 1 40 1"
-                        mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
-                        event-set__textcallpink="
+                          audio-level-scale="positionScale: 1 40 1"
+                          mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeybluetextaway magickeygreentextaway splashaway"
+                          event-set__textcallpink="
                 _event : click;
                 _target : #pinkmagickey;
                 animation.property : visible;
                 animation.to: true;"></a-entity>
-              <a-entity id="Green"
-                        position="4.5 0 0"
-                        geometry="primitive: sphere"
-                        material="color:  #48bc1e;  metalness:  0.5; emissive:  #48bc1e;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                        class="mouse"
-                        audioanalyser="src: #lane5; beatDetectionDecay: 0.99,
+                <a-entity id="Green"
+                          position="4.5 0 0"
+                          geometry="primitive: sphere"
+                          material="color:  #48bc1e;  metalness:  0.5; emissive:  #48bc1e;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                          class="mouse"
+                          audioanalyser="src: #lane5; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
-                        audio-level-scale="positionScale: 1 20 1"
-                        mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway splashaway "
-                        event-set__textcallgreen="
+                          audio-level-scale="positionScale: 1 20 1"
+                          mixin="magickeywhitetextaway magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway splashaway "
+                          event-set__textcallgreen="
                 _event : click;
                 _target : #greenmagickey;
                 animation.property : visible;
                 animation.to: true;"></a-entity>
-              <a-entity id="White"
-                        position="-4.5 0 0"
-                        geometry="primitive: sphere"
-                        material="color:  #ffffff;  metalness:  0.5; emissive:  #ffffff;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
-                        class="mouse"
-                        audioanalyser="src: #lane6; beatDetectionDecay: 0.99,
+                <a-entity id="White"
+                          position="-4.5 0 0"
+                          geometry="primitive: sphere"
+                          material="color:  #ffffff;  metalness:  0.5; emissive:  #ffffff;  emissiveIntensity:  0.6; roughness:  0.75; wireframe:  true"
+                          class="mouse"
+                          audioanalyser="src: #lane6; beatDetectionDecay: 0.99,
     beatDetectionMinVolume: 15; enableBeatDetection: true"
-                        ring-on-beat2="analyserEl: #White"
-                        audio-level-scale="positionScale: 1 20 1"
-                        mixin="magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway "
-                        event-set__textcallwhite="
+                          ring-on-beat2="analyserEl: #White"
+                          audio-level-scale="positionScale: 1 20 1"
+                          mixin="magickeysilvertextaway magickeygoldtextaway magickeypinktextaway magickeybluetextaway magickeygreentextaway splashaway "
+                          event-set__textcallwhite="
                 _event : click;
                 _target : #whitemagickey;
                 animation.property : visible;
                 animation.to: true;"></a-entity>
-          </a-entity>
-      </a-entity>
+            </a-entity>
+        </a-entity>
 
 
-  
-  
-  
 
-  
-  
-  
-  
-  
-  
-  
-  
 
-    
-  
-  
-  
-  
- 
-  
 
-  
 
-</a-scene>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </a-scene>
 </body>
